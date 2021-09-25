@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title data-title="Danh s&#225;ch kh&#243;a học">Danh s&#225;ch kh&#243;a học | MYCLASS</title>
+
+  <link href="/css/styles-v=x4RW60atpIurWojGx_tZLVnh4oDpgbF2hGWxJiMjAGM1.css" rel="stylesheet" />
+  <link href="/css/common-v=mjfzwyxul6gbnDVQmoNbszXxFbDZ9PtP-RQfZsN9oLA1.css" rel="stylesheet" />
+  <link href="/css/cmt-v=iFnEdsc0aWB7ErYBJCquEdtuLN598jdqlemVQiSAWT81.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="page-container" class="sidebar-o side-scroll page-header-glass page-header-inverse page-header-fixed main-content-narrow sidebar-inverse">
+    <%- include('../layout/sidebar'); %>
+    <%- include('../layout/menu'); %>
+    <%- include('../layout/header'); %>
+
+    <!-- Main Container -->
+    <main id="main-container">
+
+
+
+      <!-- Hero -->
+      <div class="bg-image" style="background-image: url('/images/code.jpg')/*tpa=https://www.howkteam.vn/Content/images/banner/code.jpg*/;">
+        <div class="bg-black-op">
+          <div class="content">
+            <div class="py-50 mt-20">
+              <h1 class="h2 text-white font-w700 mb-10">Tất cả khóa học</h1>
+              <h2 class="h5 text-white-op mb-0 font-w400">Hàng trăm khóa học miễn phí được xây dựng bởi MYCLASS và cộng đồng!</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END Hero -->
+
+      <!-- Courses -->
+      <div class="content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb bg-white mb-30">
+          <a class="breadcrumb-item" href="index.htm" tppabs="https://www.howkteam.vn/"><i class="fas fa-home"></i></a>
+          <span class="breadcrumb-item active">Khóa học</span>
+        </nav>
+        <!-- END Breadcrumb -->
+        <!-- Search -->
+        <div class="input-group input-group-lg">
+          <input type="text" id="input-search-course-ui" class="form-control" placeholder="Tìm khóa học...">
+          <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+          </div>
+        </div>
+        <!-- END Search -->
+        <!-- Latest Courses -->
+
+
+        <div class="content-heading h2">
+
+          <div class="dropdown float-right mr-5">
+
+            <button type="button" class="btn btn-link text-body-color-dark dropdown-toggle" id="category-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Chủ đề <strong class="text-danger">
+                <% if(category){ %>
+                <%=category.length %>
+                <% } else{ %>
+                0
+                <% } %>
+              </strong>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <% if(category){ %>
+              <% category.forEach(function (item) { %>
+              <a class="dropdown-item active" href="learn?category=<%= item.short_name %>">
+                <%= item.category_name %>
+              </a>
+              <% }) %>
+              <% }  %>
+
+            </div>
+          </div>
+          <i class="si si-book-open mr-5"></i> Khóa học
+        </div>
+        <div class="mb-30">
+
+
+        </div>
+        <div class="row row-deck items-push" id="course-list">
+
+          <% if(course){ %>
+
+          <% course.forEach(function (item) { %>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="block block-link-shadow block-rounded ribbon ribbon-bookmark ribbon-left ribbon-success">
+
+              <div class="options-container">
+                <img class="img-fluid options-item w-100" src="images/<%= item.images %>">
+                <div class="options-overlay bg-black-op-75">
+                  <div class="options-overlay-content">
+                    <a class="btn btn-noborder btn-square btn-secondary min-width-75 btnQuickViewCourse" href="javascript:void(0);" data-src="images/SPNkac-2hPk-autoplay=1">
+                      <i class="fa fa-video"></i> Giới thiệu
+                    </a>
+                    <a class="btn btn-noborder btn-square btn-primary min-width-75 btnQuickLearnCourse" href="javascript:void(0);" data-src="images/SPNkac-2hPk-autoplay=1">
+                      <i class="far fa-caret-square-right"></i> Học nhanh
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <a href="course?_id=<%= item._id %>">
+                <div class="block-content block-content-full block-sticky-options">
+                  <h4 class="font-size-default font-w600 mb-10 text-overflow-dot" title="<%= item.name %>"><%= item.name %></h4>
+
+                  <div class="text-warning font-size-sm">
+                    <% for(var i=0; i < item.star; i++) { %>
+                    <i class="fa fa-fw fa-star"></i>
+                    <% } %>
+                    <% for(var i=0; i < 5 - item.star; i++) { %>
+                    <i class="far fa-fw fa-star"></i>
+                    <% } %>
+
+                    <span class="text-muted">
+                      <span class="font-w600"> <%= item.star %></span> (<%= item.rate_number %>)
+                    </span>
+                    <span class="float-right text-secondary font-size-lg bookmark-69" onclick="Kteam.saveBookmark('69', 'Course', '/bookmark/create'); return false;" data-toggle="tooltip" data-placement="right" data-original-title="Lưu bài viết">
+                      <i class="far fa-bookmark"></i>
+                    </span>
+                  </div>
+                  <div class="mt-10">
+                    <span class="font-size-xs badge badge-pill badge-warning text-dark">
+                      From MYCLASS
+                    </span>
+                  </div>
+
+                </div>
+                <div class="block-content block-content-full block-content-sm bg-body-light text-muted font-size-sm">
+                  <div class="d-inline-block mr-10">
+                    <i class="si si-notebook fa-fw"></i>
+                    <strong><%= item.lession_number %></strong> bài học
+                  </div>
+                  <div class="d-inline-block">
+                    <i class="si si-eye fa-fw"></i>
+                    <strong><%= item.view %></strong> lượt xem
+                  </div>
+                </div>
+              </a>
+              <div class="block-content block-content-full useravatar-edit-container">
+                <span class="mr-10 text-muted">Tác giả:&nbsp;<b><%= item.user_name %></b></span>
+
+              </div>
+            </div>
+          </div>
+          <% }) %>
+          <% } %>
+
+
+
+          <!-- END Latest Courses -->
+        </div>
+        <!-- END Courses -->
+        <!-- Quick learn modal -->
+
+        <div class="quick-view-modal">
+          <a href="javascript:void(0);" class="quick-view-close"><i class="fas fa-fw fa-times fa-2x"></i></a>
+          <div class="d-flex" data-toggle="remove-style-ads">
+            <div class="quick-view-left-container" style="display: none">
+              <div class="block-content">
+                <h5 class="mb-0"><i class="fas fa-fw fa-list"></i> Danh sách bài giảng</h5>
+              </div>
+              <div class="quick-view-lecture-list" data-action="/learn/quickviewlecturelist" data-id="" data-activeid="">
+
+              </div>
+              <div class="quick-view-toolbar">
+                <a href="#" onclick="openRightSideBarQuickView(); return false;" class="btn btn-primary"><i class="fas fa-fw fa-book"></i> Nội dung</a>
+              </div>
+            </div>
+            <div class="quick-view-center-container">
+              <iframe class="h-100 w-100" id="quickViewVideo" type="text/html" data-src="images/" frameborder="0" allowfullscreen></iframe>
+              <div class="d-flex align-items-center h-100">
+                <h5 class="text-white mx-auto"> Không có video.</h5>
+              </div>
+            </div>
+            <div class="quick-view-right-container" style="display: none">
+              <div class="quick-view-toolbar">
+                <a href="#" onclick="openLeftSideBarQuickView(); return false;" class="btn btn-primary"><i class="fas fa-fw fa-list"></i> Danh sách bài giảng</a>
+              </div>
+              <div class="quick-view-content p-20"></div>
+            </div>
+          </div>
+        </div>
+
+
+    </main>
+    <!-- END Main Container -->
+
+    <!-- END Page Container -->
+    <%- include('../layout/footer'); %>
+
+    <script src="/js/layout/common-libs-v=KeX6O5qBHXp8hnCvOctyAewLoNbgYGAqeVBfuCOOl_41.js"></script>
+    <script src="/js/layout/hubs.js"></script>
+    <script src="/js/layout/theme-libs-v=flWwMHqqG4vF5_S78OkkZmbgib5d81EN11q97eVmyjk1.js"></script>
+    <script src="/js/layout/js-v=RBijanojz1bp28r6ZUS4cWfovfa1gOATZhiHYkkjzVo1.js"></script>
+    <script src="/js/layout/common-v=5WmZiv4HuIV-gt1ets7IC2aEarKWhzqG_TwZPwLi1TQ1.js"></script>
+    <script src="/js/layout/cmt-v=65dISZQsn5VeLZedj3SFRm92FDw6tiXebwIpHpvT1nY1.js"></script>
+  </div>
+  <script>
+    $("a.side-nav-learn").addClass("active");
+  </script>
+  <script src="/js/layout/quicklearn-v=wVvEGEzTmNdfHEOrup4fxiC6Y4Y_Wtxli68buwFIvYI1.js"></script>
+  <script src="/js/common/common.js"></script>
+</body>
+
+</html>

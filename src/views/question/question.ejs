@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title data-title="Danh s&#225;ch kh&#243;a học">Danh s&#225;ch kh&#243;a học | MYCLASS</title>
+
+  <link href="/css/styles-v=x4RW60atpIurWojGx_tZLVnh4oDpgbF2hGWxJiMjAGM1.css" rel="stylesheet" />
+  <link href="/css/common-v=mjfzwyxul6gbnDVQmoNbszXxFbDZ9PtP-RQfZsN9oLA1.css" rel="stylesheet" />
+  <link href="/css/cmt-v=iFnEdsc0aWB7ErYBJCquEdtuLN598jdqlemVQiSAWT81.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="page-container" class="sidebar-o side-scroll page-header-glass page-header-inverse page-header-fixed main-content-narrow sidebar-inverse">
+    <%- include('../layout/sidebar'); %>
+    <%- include('../layout/menu'); %>
+    <%- include('../layout/header'); %>
+
+    <!-- Main Container -->
+    <main id="main-container" style="height: auto !important; min-height: 221.8px;">
+
+
+
+
+      <!-- Hero -->
+      <div class="bg-image" style="background-image: url('/Content/images/banner/code.jpg');">
+        <div class="bg-black-op">
+          <div class="content">
+            <div class="py-50 mt-20">
+              <div class="d-lg-flex justify-content-between align-items-center">
+                <div>
+                  <h1 class="h2 text-white font-w700 mb-10">Hỏi đáp</h1>
+                  <h2 class="h5 text-white-op font-w400 mb-lg-0">Chia sẻ kiến thức, cùng nhau phát triển</h2>
+                </div>
+                <div>
+                  <a href="#" data-toggle="btn-create-question" class="btn btn-primary"><i class="far fa-question-circle fa-fw"></i>    u hỏi</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END Hero -->
+
+      <div class="content" style="height: auto !important;">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb bg-white mb-30">
+          <a class="breadcrumb-item" href="/"><i class="fas fa-home"></i></a>
+          <span class="breadcrumb-item active">Hỏi đáp</span>
+        </nav>
+        <!-- END Breadcrumb -->
+
+        <div class="row" style="height: auto !important;">
+          <div class="col-lg-9" style="height: auto !important; min-height: 0px !important;">
+
+            <div class="block block-bordered mb-15">
+              <div class="d-flex justify-content-between align-items-center bg-gray-light">
+                <ul class="nav nav-tabs nav-tabs-block bg-gray-light">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Tất cả</a>
+                  </li>
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="/question?tab=my">Câu hỏi của tôi</a>
+                  </li>
+                </ul>
+                <div class="dropdown">
+
+                  <button type="button" class="btn btn-link text-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sắp xếp: <strong class="text-danger">Mới nhất</strong>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item active" href="#">
+                      Mới nhất
+                    </a>
+                    <a class="dropdown-item " href="/question?s=active">
+                      Hoạt động
+                    </a>
+                    <a class="dropdown-item " href="/question?s=views">
+                      Lượt xem
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="block block-bordered mb-10">
+              <div class="block-content block-content-full bg-light">
+                <a href="#" data-toggle="btn-create-question">
+                  <div class="media">
+                    <div class="media-left pr-20">
+                      <img class="media-object avatar common-avatar" src="/Content/images/avatar/avatar.png">
+                    </div>
+                    <div class="media-body">
+                      <div class="font-size-xs font-w600 common-fullname text-secondary mb-5">nmquang21</div>
+                      <div class="p-10 border bg-white">
+                        <div class="">
+                          <span class="text-secondary font-w600">Tạo câu hỏi của bạn</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+
+           
+
+            <div class="block block-bordered mb-10">
+              <div class="block-content block-content-full tab-content overflow-hidden">
+                <!-- Results -->
+                <div class="question-summary">
+                  <div class="counts">
+                    <div class="counts-votes">
+                      <div class="counts-votes-num">
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-up fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-down fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                      </div>
+                      <div class="counts-votes-arrow">
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-up fa-fw"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-down fa-fw"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="counts-answered counts-bordered">
+                      <div class="mini-counts"><span>1</span></div>
+                      <span>trả lời</span>
+                    </div>
+
+                    <div class="counts-views text-danger">
+                      <div class="mini-counts"><span>24</span></div>
+                      <span>lượt xem</span>
+                    </div>
+                  </div>
+                  <div class="summary">
+                    <a href="/q/c-help-nhan-du-lieu-tu-form2-khi-nhan-ok-form1-chay-lenh-52763">
+                      <h4 class="h5 mb-5">
+                        <span class="mark-lookup">C# Help Nhận Dữ Liệu Từ Form2 Khi Nhấn OK Form1 Chạy Lệnh</span>
+                      </h4>
+                    </a>
+                    <div class="mb-5">
+
+                      <a href="/tags/c-3" class="post-tag">c#</a>
+
+                    </div>
+                    <div class="font-size-xs mb-5 text-muted">
+                      <span>
+                        <a href="/users/d0033d9f-239f-4eba-9055-e216aeaefef4">
+                          <img src="/Content/images/avatar/avatar.png" class="avatar-xs mr-5 d-inline">
+                          <span>nguyenducthongcf</span>
+                        </a>
+                        <span>đã hỏi</span>
+                        <em class="format-time font-w600" title=" 2021-09-23 18:05:29">khoảng 6 giờ trước</em>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="question-summary">
+                  <div class="counts">
+                    <div class="counts-votes">
+                      <div class="counts-votes-num">
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-up fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-down fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                      </div>
+                      <div class="counts-votes-arrow">
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-up fa-fw"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-down fa-fw"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="counts-answered counts-bordered">
+                      <div class="mini-counts"><span>1</span></div>
+                      <span>trả lời</span>
+                    </div>
+
+                    <div class="counts-views text-danger">
+                      <div class="mini-counts"><span>31</span></div>
+                      <span>lượt xem</span>
+                    </div>
+                  </div>
+                  <div class="summary">
+                    <a href="/q/escape-sequence-la-gi-vay-52762">
+                      <h4 class="h5 mb-5">
+                        <span class="mark-lookup">escape sequence là gì vậy</span>
+                      </h4>
+                    </a>
+                    <div class="mb-5">
+
+                      <a href="/tags/net-17" class="post-tag">.net</a>
+
+                    </div>
+                    <div class="font-size-xs mb-5 text-muted">
+                      <span>
+                        <a href="/users/1324294a-a2b3-483a-a20c-47d212121741">
+                          <img src="/Content/images/avatar/avatar.png" class="avatar-xs mr-5 d-inline">
+                          <span>0108_Xxx</span>
+                        </a>
+                        <span>đã hỏi</span>
+                        <em class="format-time font-w600" title=" 2021-09-23 10:39:33">khoảng 13 giờ trước</em>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="question-summary">
+                  <div class="counts">
+                    <div class="counts-votes">
+                      <div class="counts-votes-num">
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-up fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-down fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                      </div>
+                      <div class="counts-votes-arrow">
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-up fa-fw"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-down fa-fw"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="counts-answered counts-bordered">
+                      <div class="mini-counts"><span>1</span></div>
+                      <span>trả lời</span>
+                    </div>
+
+                    <div class="counts-views text-danger">
+                      <div class="mini-counts"><span>25</span></div>
+                      <span>lượt xem</span>
+                    </div>
+                  </div>
+                  <div class="summary">
+                    <a href="/q/msil-loi-nay-fix-sao-z-ca-nha-oi-helpme-52761">
+                      <h4 class="h5 mb-5">
+                        <span class="mark-lookup">MSIL lỗi này fix sao z cả nhà ơi helpme!</span>
+                      </h4>
+                    </a>
+                    <div class="mb-5">
+
+                      <a href="/tags/msil-50153" class="post-tag">msil</a>
+
+                    </div>
+                    <div class="font-size-xs mb-5 text-muted">
+                      <span>
+                        <a href="/users/f9185c95-6d8b-4ee4-8781-2f726c9219f1">
+                          <img src="/Content/images/avatar/avatar.png" class="avatar-xs mr-5 d-inline">
+                          <span>quanghoatc933</span>
+                        </a>
+                        <span>đã hỏi</span>
+                        <em class="format-time font-w600" title=" 2021-09-23 02:02:51">khoảng 22 giờ trước</em>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="question-summary">
+                  <div class="counts">
+                    <div class="counts-votes">
+                      <div class="counts-votes-num">
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-up fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <span>0</span>
+                          <i class="fas fa-caret-down fa-fw d-inline-block d-sm-none mr-5"></i>
+                        </div>
+                      </div>
+                      <div class="counts-votes-arrow">
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-up fa-fw"></i>
+                        </div>
+                        <div class="mini-counts">
+                          <i class="fas fa-caret-down fa-fw"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="counts-answered counts-bordered">
+                      <div class="mini-counts"><span>1</span></div>
+                      <span>trả lời</span>
+                    </div>
+
+                    <div class="counts-views text-danger">
+                      <div class="mini-counts"><span>54</span></div>
+                      <span>lượt xem</span>
+                    </div>
+                  </div>
+                  <div class="summary">
+                    <a href="/q/hoi-ve-tool-adb-capture-52760">
+                      <h4 class="h5 mb-5">
+                        <span class="mark-lookup">Hỏi về tool ADB Capture</span>
+                      </h4>
+                    </a>
+                    <div class="mb-5">
+
+                      <a href="/tags/automation-524" class="post-tag">automation</a>
+
+                    </div>
+                    <div class="font-size-xs mb-5 text-muted">
+                      <span>
+                        <a href="/users/2cf12292-7585-4d06-bd4c-533cccf53340">
+                          <img src="/Content/images/avatar/avatar.png" class="avatar-xs mr-5 d-inline">
+                          <span>VoTanDuc</span>
+                        </a>
+                        <span>đã hỏi</span>
+                        <em class="format-time font-w600" title=" 2021-09-22 12:40:38">1 ngày trước</em>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+             
+
+
+
+
+                <!-- <ul class="pagination mt-20">
+                  <li class="page-item active">
+                    <a class="page-link" href="javascript:void(0)">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/question?page=2">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/question?page=3">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/question?page=4">4</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/question?page=5">5</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/question?page=6">6</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <a class="page-link" href="javascript:void(0)">...</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/question?page=100">100</a>
+                  </li>
+
+
+                  <li class="page-item">
+                    <a class="page-link" href="/question?page=2">
+                      <span aria-hidden="true">
+                        <i class="fa fa-angle-double-right"></i>
+                      </span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul> -->
+
+
+
+              </div>
+            </div>
+
+
+          
+            <!-- END Results -->
+          </div>
+          <div class="col-lg-3" style="height: auto !important; min-height: 0px !important;">
+          
+
+           
+            <div class="block block-rounded">
+              <div class="block-header block-header-default">
+                <h3 class="block-title font-w600">Bài viết mới nhất</h3>
+              </div>
+              <div class="block-content block-content-full">
+                <div class="asyncPartial" data-url="/documentation/sidebardocumentation?type=Newest">
+                  <ul class="list-unstyled sidebar-list">
+                   
+                    <li>
+                      <a href="/d/ky-thuat-su-dung-dependency-injection-trong-winform-project-winform-never-die-515" class="color-hyperlink">Kỹ thuật sử dụng Dependency Injection trong Winform project - Winform never die</a>
+                      <div class="mb-5 text-muted font-size-xs">
+                        <span class="mr-10" title="Bình chọn lên">
+                          <i class="fas fa-fw fa-caret-up fa-fw"></i>
+                          <span>2</span>
+                        </span>
+                        <span class="mr-10" title="Bình chọn xuống">
+                          <i class="fas fa-fw fa-caret-down fa-fw"></i>
+                          <span>1</span>
+                        </span>
+                        <span class="mr-10" title="Bình luận">
+                          <i class="far fa-fw fa-comment fa-fw"></i>
+                          <span>4</span>
+                        </span>
+                        <span class="mr-10" title="Lượt xem">
+                          <i class="far fa-fw fa-eye fa-fw"></i>
+                          <span>550</span>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="/d/laravel-9-co-gi-moi--514" class="color-hyperlink">Laravel 9 có gì mới ?</a>
+                      <div class="mb-5 text-muted font-size-xs">
+                        <span class="mr-10" title="Bình chọn lên">
+                          <i class="fas fa-fw fa-caret-up fa-fw"></i>
+                          <span>1</span>
+                        </span>
+                        <span class="mr-10" title="Bình chọn xuống">
+                          <i class="fas fa-fw fa-caret-down fa-fw"></i>
+                          <span>0</span>
+                        </span>
+                        <span class="mr-10" title="Bình luận">
+                          <i class="far fa-fw fa-comment fa-fw"></i>
+                          <span>0</span>
+                        </span>
+                        <span class="mr-10" title="Lượt xem">
+                          <i class="far fa-fw fa-eye fa-fw"></i>
+                          <span>381</span>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="/d/code-mau-laravel-livewire-trong-laraveliolaravelio-513" class="color-hyperlink">Code mẫu laravel Livewire trong laravelio/laravel.io</a>
+                      <div class="mb-5 text-muted font-size-xs">
+                        <span class="mr-10" title="Bình chọn lên">
+                          <i class="fas fa-fw fa-caret-up fa-fw"></i>
+                          <span>1</span>
+                        </span>
+                        <span class="mr-10" title="Bình chọn xuống">
+                          <i class="fas fa-fw fa-caret-down fa-fw"></i>
+                          <span>0</span>
+                        </span>
+                        <span class="mr-10" title="Bình luận">
+                          <i class="far fa-fw fa-comment fa-fw"></i>
+                          <span>0</span>
+                        </span>
+                        <span class="mr-10" title="Lượt xem">
+                          <i class="far fa-fw fa-eye fa-fw"></i>
+                          <span>70</span>
+                        </span>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="/d/cam-on-howkteam-vi-nhung-bai-hoc-bo-ich-508" class="color-hyperlink">Cảm ơn HowKteam vì những bài học bổ ích</a>
+                      <div class="mb-5 text-muted font-size-xs">
+                        <span class="mr-10" title="Bình chọn lên">
+                          <i class="fas fa-fw fa-caret-up fa-fw"></i>
+                          <span>2</span>
+                        </span>
+                        <span class="mr-10" title="Bình chọn xuống">
+                          <i class="fas fa-fw fa-caret-down fa-fw"></i>
+                          <span>1</span>
+                        </span>
+                        <span class="mr-10" title="Bình luận">
+                          <i class="far fa-fw fa-comment fa-fw"></i>
+                          <span>4</span>
+                        </span>
+                        <span class="mr-10" title="Lượt xem">
+                          <i class="far fa-fw fa-eye fa-fw"></i>
+                          <span>180</span>
+                        </span>
+                      </div>
+                    </li>
+                
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </main>
+    <!-- END Main Container -->
+
+    <!-- END Page Container -->
+    <%- include('../layout/footer'); %>
+    <%- include('../layout/modal'); %>
+    <script src="/js/layout/common-libs-v=KeX6O5qBHXp8hnCvOctyAewLoNbgYGAqeVBfuCOOl_41.js"></script>
+    <script src="/js/layout/hubs.js"></script>
+    <script src="/js/layout/theme-libs-v=flWwMHqqG4vF5_S78OkkZmbgib5d81EN11q97eVmyjk1.js"></script>
+    <script src="/js/layout/js-v=RBijanojz1bp28r6ZUS4cWfovfa1gOATZhiHYkkjzVo1.js"></script>
+    <script src="/js/layout/common-v=5WmZiv4HuIV-gt1ets7IC2aEarKWhzqG_TwZPwLi1TQ1.js"></script>
+    <script src="/js/layout/cmt-v=65dISZQsn5VeLZedj3SFRm92FDw6tiXebwIpHpvT1nY1.js"></script>
+  </div>
+  <script>
+    $("a.side-nav-learn").addClass("active");
+  </script>
+  <script src="/js/layout/quicklearn-v=wVvEGEzTmNdfHEOrup4fxiC6Y4Y_Wtxli68buwFIvYI1.js"></script>
+  <script src="/js/common/common.js"></script>
+</body>
+
+</html>

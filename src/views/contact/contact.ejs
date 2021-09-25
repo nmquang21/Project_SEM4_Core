@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title data-title="Danh s&#225;ch kh&#243;a học">Danh s&#225;ch kh&#243;a học | MYCLASS</title>
+
+  <link href="/css/styles-v=x4RW60atpIurWojGx_tZLVnh4oDpgbF2hGWxJiMjAGM1.css" rel="stylesheet" />
+  <link href="/css/common-v=mjfzwyxul6gbnDVQmoNbszXxFbDZ9PtP-RQfZsN9oLA1.css" rel="stylesheet" />
+  <link href="/css/cmt-v=iFnEdsc0aWB7ErYBJCquEdtuLN598jdqlemVQiSAWT81.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="page-container" class="sidebar-o side-scroll page-header-glass page-header-inverse page-header-fixed main-content-narrow sidebar-inverse">
+    <%- include('../layout/sidebar'); %>
+    <%- include('../layout/menu'); %>
+    <%- include('../layout/header'); %>
+
+    <!-- Main Container -->
+    <main id="main-container" style="height: auto !important; min-height: 245.8px;">
+        <!-- Hero -->
+        <div class="bg-image" style="background-image: url('/Content/images/banner/map.jpg');">
+          <div class="bg-primary-dark-op">
+            <div class="content text-center">
+              <div class="py-50 mt-20">
+                <h1 class="h2 text-white font-w700 mb-10">Liên hệ - Góp ý</h1>
+                <h2 class="h5 text-white-op mb-0 font-w400">Góp ý hoặc liên hệ cho MYCLASS nếu bạn có nhu cầu về dịch vụ, quảng cáo hoặc những thắc mắc khác.</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Hero -->
+      
+        <div class="bg-gray-light">
+          <div class="content py-0 text-center">
+            <ul class="nav nav-tabs nav-tabs-block bg-gray-light justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link" id="a-nav-about" href="/about">Về MYCLASS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="a-nav-supporters" href="/supporters">Người ủng hộ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" id="a-nav-contact" href="/contact">Liên hệ - Góp ý</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="a-nav-donate" href="/donate">Tài trợ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="content" style="height: auto !important;">
+          <div class="row row-deck">
+            <div class="col-xl-6">
+              <div class="block block-rounded block-fx-shadow">
+                <div class="block-header block-header-default">
+                  <h3 class="block-title font-w600"><i class="fas fa-paper-plane fa-fw"></i> Gửi thông tin Liên hệ - Góp ý</h3>
+                </div>
+                <div class="block-content pb-20">
+                  <p class="text-muted">
+                    Góp ý hoặc liên hệ cho MYCLASS nếu bạn có nhu cầu về dịch vụ, quảng cáo hoặc những thắc mắc khác.
+                  </p>
+      
+                  <form action="/about/createcontact" id="contactForm" method="post" role="form" novalidate="novalidate"><input name="__RequestVerificationToken" type="hidden" value="knT2p6eOnSrQmtPtHSgFU__Ey_beXiADiWF1EBxH5G5maT-WI1fZhl8esw4wq0mlddS3fIjUXyQULAsGGMoBXA5wzPPfZ8CgbidLUo4Rkyo1">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="Name">Họ tên</label>
+                          <input class="form-control form-control-lg" data-val="true" data-val-required="Vui lòng nhập Họ tên" id="Name" name="Name" placeholder="Tên của bạn" type="text" value="">
+                          <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Email">Email</label>
+                          <input class="form-control form-control-lg" data-val="true" data-val-email="Email không hợp lệ" data-val-required="Vui lòng nhập Email" id="Email" name="Email" placeholder="Email" type="text" value="">
+                          <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="PhoneNumber">Điện thoại</label>
+                          <input class="form-control form-control-lg" data-val="true" data-val-length="Điện thoại không hợp lệ." data-val-length-max="13" data-val-length-min="10" data-val-phone="Điện thoại không hợp lệ." data-val-required="Vui lòng nhập Điện thoại" id="PhoneNumber" name="PhoneNumber" placeholder="Số điện thoại" type="text" value="">
+                          <span class="field-validation-valid text-danger" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="Subject">Tiêu đề</label>
+                          <input class="form-control form-control-lg" data-val="true" data-val-required="Vui lòng nhập Tiêu đề" id="Subject" name="Subject" placeholder="Tiêu đề" type="text" value="">
+                          <span class="field-validation-valid text-danger" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="Message">Nội dung</label>
+                          <textarea class="form-control form-control-lg" cols="4" data-val="true" data-val-required="Vui lòng nhập Nội dung" id="Message" name="Message" placeholder="Nội dung" rows="4"></textarea>
+                          <span class="field-validation-valid text-danger" data-valmsg-for="Message" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="">
+      
+                          <div>
+                            <div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
+                              <div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcjrlgUAAAAAFlUURyuaYP0jqpip5hAKD56uHNr&amp;co=aHR0cHM6Ly93d3cuaG93a3RlYW0udm46NDQz&amp;hl=en&amp;v=tftmXwdbgCvrXiHxr5HGbIaL&amp;size=invisible&amp;cb=5y2jdati9ct7" width="256" height="60" role="presentation" name="a-q19cm46s9p4t" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe></div>
+                              <div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                            </div><iframe style="display: none;"></iframe>
+                          </div><button class="g-recaptcha btn btn-primary btn-lg btn-block btn-noborder min-width-100" data-sitekey="6LcjrlgUAAAAAFlUURyuaYP0jqpip5hAKD56uHNr" data-callback="onRegister">
+                            <i class="fas fa-paper-plane fa-fw"></i> Gửi
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="block block-rounded block-fx-shadow">
+                <div class="block-header block-header-default">
+                  <h3 class="block-title font-w600"><i class="fa fa-info-circle fa-fw"></i> Thông tin liên hệ khác</h3>
+                </div>
+                <div class="block-content pb-20">
+                  <p class="text-muted">
+                    Mọi thông tin đóng góp ý kiến hoặc hỗ trợ, người dùng có thể liên hệ trực tiếp qua các kênh sau:
+                  </p>
+                  <div class="media mb-10">
+                    <i class="fas fa-phone-square fa-fw fa-3x mr-10"></i>
+                    <div class="media-body">
+                      <p class="font-w600 m-0">Điện thoại</p>
+                      <a href="tel:0909256437">(+84) 909 256 437 (Mr.Quang)</a><br>
+                     
+                    </div>
+                  </div>
+                  <div class="media mb-10">
+                    <i class="fas fa-envelope-square fa-fw fa-3x mr-10"></i>
+                    <div class="media-body">
+                      <p class="font-w600 m-0">Email</p>
+                      <a  target="_top">myclass@gmail.com</a>
+                    </div>
+                  </div>
+                  <div class="media mb-10">
+                    <i class="fab fa-facebook fa-fw fa-3x mr-10 red"></i>
+                    <div class="media-body">
+                      <p class="font-w600 m-0">Kteam Page</p>
+                      <a  >https://www.fb.com/myclass</a>
+                    </div>
+                  </div>
+                  <div class="media mb-10">
+                    <i class="fab fa-facebook fa-fw fa-3x mr-10"></i>
+                    <div class="media-body">
+                      <p class="font-w600 m-0">Kteam Group</p>
+                      <a >https://www.fb.com/groups/myclass</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+      
+        </div>
+      
+      
+      </main>
+    <!-- END Main Container -->
+   
+  <!-- END Page Container -->
+    <%- include('../layout/footer'); %>
+
+  <script src="/js/layout/common-libs-v=KeX6O5qBHXp8hnCvOctyAewLoNbgYGAqeVBfuCOOl_41.js"></script>
+  <script src="/js/layout/hubs.js"></script>
+  <script src="/js/layout/theme-libs-v=flWwMHqqG4vF5_S78OkkZmbgib5d81EN11q97eVmyjk1.js"></script>
+  <script src="/js/layout/js-v=RBijanojz1bp28r6ZUS4cWfovfa1gOATZhiHYkkjzVo1.js"></script>
+  <script src="/js/layout/common-v=5WmZiv4HuIV-gt1ets7IC2aEarKWhzqG_TwZPwLi1TQ1.js"></script>
+  <script src="/js/layout/cmt-v=65dISZQsn5VeLZedj3SFRm92FDw6tiXebwIpHpvT1nY1.js"></script>
+  </div>
+  <script>
+    $("a.side-nav-learn").addClass("active");
+  </script>
+  <script src="/js/layout/quicklearn-v=wVvEGEzTmNdfHEOrup4fxiC6Y4Y_Wtxli68buwFIvYI1.js"></script>
+  <script src="/js/common/common.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,118 @@
+ <!-- Header -->
+ <header id="page-header">
+    <!-- Header Content -->
+    <div class="content-header">
+      <!-- Left Section -->
+      <div class="content-header-section">
+        <!-- Toggle Sidebar -->
+        <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="sidebar_toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <!-- END Toggle Sidebar -->
+        <span class="header-logo-hide">
+          <a href="/">
+            <img src="/images/myclass.png"width="50px"height="50px"/>
+          </a>
+        </span>
+      </div>
+      <!-- END Left Section -->
+      <!-- Right Section -->
+      <div class="content-header-section">
+        <!-- Open Search Section -->
+        <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="header_search_on">
+          <i class="fa fa-search"></i>
+        </button>
+        <!-- END Open Search Section -->
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="si si-pencil"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right min-width-150">
+            <a class="dropdown-item" href="#" data-toggle="btn-create-question">
+              <i class="si si-question mr-2"></i> Đặt câu hỏi
+            </a>
+            <!-- <a class="dropdown-item" href="javascript:if(confirm(%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fdocumentation%2Fcreate  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fdocumentation%2Fcreate%27" tppabs="https://www.howkteam.vn/documentation/create">
+              <i class="si si-doc mr-2"></i> Viết bài
+            </a>
+            <a class="dropdown-item" href="javascript:if(confirm(%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fseries%2Fcreate  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fseries%2Fcreate%27" tppabs="https://www.howkteam.vn/series/create">
+              <i class="si si-list mr-2"></i> Tạo series
+            </a> -->
+          </div>
+        </div>
+
+        <!-- User Dropdown -->
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if(user){ %>
+              <script>
+                var getTest = "<%= user%>";  //var test is now assigned to getTest which will only work on browsers
+             </script>
+            <img src="<%=user.avatar %> " class="avatar-xs align-bottom mr-5" />
+            <span class="mr-5"><%=`${user.firstname} ${user.lastname}` %></span>
+            <% } else{ %>
+            <img src="images/avatar.png" class="avatar-xs align-bottom mr-5" />
+            <span class="mr-5">Tài khoản</span>
+            <% } %>
+            <i class="fa fa-angle-down"></i>
+          </button>
+          <% if(user){ %>
+          <div class="dropdown-menu dropdown-menu-right min-width-150" aria-labelledby="page-header-user-dropdown" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-121px, 24px, 0px);">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/users/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">
+              <i class="si si-user mr-5"></i> Hồ sơ
+            </a>
+
+            <a class="dropdown-item" href="/users/edit/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">
+              <i class="si si-wrench mr-5"></i> Cài đặt
+            </a>
+            <!-- END Side Overlay -->
+
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id="btn-logout">
+              <i class="si si-logout mr-5"></i> Đăng xuất
+            </a>
+            <input type="hidden" id="common-authen" value="true">
+            <div class="d-none" id="common-userId">6d566b12-2016-4321-8b05-ac2a5dcbd2f2</div>
+          </div>
+          <% } else{ %>
+          <div class="dropdown-menu dropdown-menu-right min-width-150" aria-labelledby="page-header-user-dropdown">
+            <a class="dropdown-item" href="/login">
+              <i class="far fa-user fa-fw"></i> Đăng nhập
+            </a>
+            <a class="dropdown-item" href="/register">
+              <i class="fas fa-user-plus fa-fw"></i> Đăng ký
+            </a>
+          </div>
+          <% } %>
+        </div>
+
+      </div>
+      <!-- END Right Section -->
+    </div>
+    <!-- END Header Content -->
+    <!-- Header Search -->
+
+    <div id="page-header-search" class="overlay-header">
+      <div class="content-header content-header-fullrow">
+        <form action="/search" method="get">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <!-- Close Search Section -->
+              <button type="button" class="btn btn-secondary" data-toggle="layout" data-action="https://www.howkteam.vn/header_search_off">
+                <i class="fa fa-times"></i>
+              </button>
+              <!-- END Close Search Section -->
+            </div>
+            <input type="text" class="form-control" placeholder="Search or hit ESC.." name="q">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-secondary">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- END Header Search -->
+  </header>
+  <!-- END Header -->

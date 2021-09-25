@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYCLASS - Tạo tài khoản MYCLASS </title>
+    <link src="~/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+
+    <link href="https://id.misacdn.net/css/vendor.min.css" rel="stylesheet" />
+    <link
+        href="https://id.misacdn.net/lib/jquery-toast-plugin/css/jquery.toast.min.css?v=WolrNTZ9lY0QL5f0_Qi1yw3RGnDLig2HVLYkrshm7Y0"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://id.misacdn.net/css/membership.min.css?v=ywXU-Apuu5F39oNAue_2Yk4ozW6j8z1qHIduUr3NTo0" />
+
+
+</head>
+
+<body class="page">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2GL5WJ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div
+        class="container-sm main-content auth-wrapper d-flex no-block justify-content-center align-items-center-custom align-items-sm-center custom-container center-form p-0">
+        <div class="wrapper mb-5 w-75 mx-auto">
+
+
+            <div class="row justify-content-center">
+                <div class="col d-flex flex-column align-items-center p-0">
+                    <div class="p-3 w-100 mw-838 mw-md-558 mw-webview-440 d-flex justify-content-center"
+                        style="background-color: white; border-radius: 12px;">
+                        <div class="d-none d-xl-block col-xl-6 content-page-left  pr-0 pl-0 pl-sm-3 pr-sm-3">
+
+                            <div class="m-logo col pt-3 pb-3 justify-content-center display-flex">
+                                <div class="row">
+                                    <img src="/images/myclass.png" class="misa-logo" />
+                                </div>
+                            </div>
+
+                            <div class="img-page-login mx-auto "></div>
+                            <div class="m-logo col pb-3 justify-content-center display-flex">
+                                <div class="row">
+                                    Một tài khoản sử dụng tất cả ứng dụng MYCLASS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 content-page-right mw-webview-392 pr-0 pl-0 pl-sm-3 pr-sm-3">
+
+                            <div class="main-title padding-top-logo">
+                                <div class="p-content-left pr-md-2  padding-custom">
+                                    <div class="row">
+                                        <div class="d-block d-xl-none mx-auto">
+                                            <div class="m-logo col pt-3 pb-3 justify-content-center display-flex">
+                                                <div class="row">
+                                                    <img src="/images/myclass.png"
+                                                        class="misa-logo" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div
+                                            class="text-center col-12 col-sm-12 pb-2  pt-3 text-xl-left pl-0 pr-0 custom-text-desktop">
+                                            <span class=" title-login color-000">
+                                                Tạo tài khoản MYCLASS
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="d-block d-xl-none font-size-14 text-center mx-auto pb-2">
+                                    Một tài khoản sử dụng tất cả ứng dụng của MYCLASS
+                                </div>
+
+                            </div>
+                            <span class="field-validation-valid exception login-error2"
+                                        data-valmsg-for="InvalidCredentials" data-valmsg-replace="true">Vui lòng nhập tên đăng nhập và mật khẩu!</span>
+                            <div class="custom-card-desktop">
+                                <form method="post" id="register-form" class="pt-2" autocomplete="new-password"
+                                    action="/account/register?culture=vi-VN">
+                                    <div class="row">
+                                        <div class="col-ss-6 col-ss pl-0 pr-0 pb-0 mb-ss-3 pr-ss-2">
+                                            <div id="LastName-form"
+                                                class="active pl-3 pr-3 pb-1 pt-1 form-control LastName-border ">
+                                                <label class="trans" id="label-LastName" class="" for="">Họ và tên
+                                                    đệm</label>
+                                                <input autofocus type="text" autocomplete="new-password" id="LastName"
+                                                    value="" class="transFocus col-12 txt-input-misaid " tabindex="1"
+                                                    data-val="true"
+                                                    data-val-required="H&#x1ECD; v&#xE0; t&#xEA;n &#x111;&#x1EC7;m kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng"
+                                                    name="LastName">
+                                            </div>
+                                            <label id="LastName-error" class="error label-error-d-none"
+                                                for="LastName"></label>
+
+                                            <span class="field-validation-valid exception login-error"
+                                                data-valmsg-for="LastName" data-valmsg-replace="true"></span>
+
+                                        </div>
+                                        <div class=" col-ss-6 col-ss pl-ss-2 pt-ss-0 pt-0 pl-0 pr-0">
+                                            <div id="FirstName-form"
+                                                class="pl-3 pr-3  pb-1 pt-1 form-control FirstName-border">
+                                                <label id="label-FirstName" class=" " for="">Tên</label>
+                                                <input autocomplete="new-password" id="FirstName" value=""
+                                                    class="col-12 txt-input-misaid " tabindex="2" type="text"
+                                                    data-val="true"
+                                                    data-val-required="T&#xEA;n kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng"
+                                                    name="FirstName">
+                                            </div>
+                                            <label id="FirstName-error" class="error mb-0 label-error-d-none"
+                                                for="FirstName"></label>
+
+                                            <span class="field-validation-valid exception login-error"
+                                                data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+                                        </div>
+
+                                    </div>
+                                    <div id="Email-form" class="pl-3 pr-3  pb-1 pt-1 form-control mt-3 Email-border">
+                                        <label id="label-Email" class=" " for="">Email</label>
+                                        <input autocomplete="new-password" value="" class="txt-input-misaid "
+                                            tabindex="3" type="text" data-val="true"
+                                            data-val-required="Email kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng"
+                                            id="Email" name="Email">
+                                    </div>
+                                    <label id="Email-error" class="mb-0 error label-error-d-none" for="Email"></label>
+
+                                    <span class="field-validation-valid exception login-error" data-valmsg-for="Email"
+                                        data-valmsg-replace="true"></span>
+                                    <span class="field-validation-valid exception login-error"
+                                        data-valmsg-for="EmailLink" data-valmsg-replace="true"></span>
+                                    <div id="Username-form"
+                                        class="pl-3 pr-3  pb-1 pt-1 form-control mt-3 Username-border">
+                                        <label id="label-Username" class=" " for="">Số điện thoại</label>
+                                        <input id="Username" autocomplete="new-password" value=""
+                                            class="txt-input-misaid " tabindex="4" type="text" data-val="true"
+                                            data-val-required="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng"
+                                            name="Username">
+                                        <div hidden class="checkUserName"></div>
+                                        <input autocomplete="new-password" type="text" name="name" class="returnUrl"
+                                            hidden />
+                                    </div>
+                                    <label id="Username-error" class="error label-error-d-none" for="Username"></label>
+
+                                    <span class="field-validation-valid exception login-error"
+                                        data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                                    <span class="field-validation-valid exception login-error"
+                                        data-valmsg-for="UsernameLink" data-valmsg-replace="true"></span>
+                                    <div id="Password-form"
+                                        class="pl-3 pr-3 pb-1 pt-1 form-control border-password mt-3 input-password Password-border">
+                                        <label id="label-Password" class=" " for="">Mật khẩu</label>
+                                        <div class="input-group  rounded ">
+                                            <input autocomplete="new-password" id="Password" type="password"
+                                                class="border-0 txt-input-misaid input-custom  " autocomplete="off"
+                                                tabindex="5" data-val="true"
+                                                data-val-length="M&#x1EAD;t kh&#x1EA9;u ph&#x1EA3;i c&#xF3; &#xED;t nh&#x1EA5;t 8 k&#xED; t&#x1EF1;."
+                                                data-val-length-max="100" data-val-length-min="8"
+                                                data-val-required="M&#x1EAD;t kh&#x1EA9;u kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng"
+                                                name="Password">
+                                        </div>
+                                        <button type="button" class="button-show btn-eye rounded-right">
+                                            <img src="https://id.misacdn.net/img/icons/startbooks/ic_hide.svg"
+                                                width="24" height="24" class="icon-hidden" />
+                                            <img width="24" height="24"
+                                                src="https://id.misacdn.net/img/icons/startbooks/ic_show.svg"
+                                                class="icon-show hidden-eye" />
+                                        </button>
+
+                                    </div>
+                                    <label id="Password-error" class="error label-error-d-none" for="Password"></label>
+                                    <div class="form-group mb-0 pr-2 report-strength mt-3" hidden>
+                                        <p class="mb-0"></p>
+                                        <div class="row ">
+                                            <div class="d-flex  text-left strength-8-characters pl-0 pr-2">
+                                                <div class="gr-check-strength mb-0 mr-2">
+                                                    <div class="check-strength password-no-strength check-strength1">
+                                                    </div>
+                                                </div>
+                                                <div class="text-strength text-no-strength text-check">
+                                                    <div>Có ít nhất 8 ký tự</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="d-flex  text-right uppercase-lowercase  pr-0">
+                                                <div class="gr-check-strength mb-0 mr-2">
+                                                    <div class="check-strength password-no-strength check-strength2">
+                                                    </div>
+                                                </div>
+                                                <div class="text-strength text-no-strength text-check pl-0 pr-0">
+                                                    <div>Có chữ thường (a-z) và chữ in hoa (A-Z)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="d-flex number pl-0 pr-0">
+                                                <div class="gr-check-strength mb-0 mr-2">
+                                                    <div class="check-strength password-no-strength"></div>
+                                                </div>
+                                                <div class="text-strength text-no-strength text-check">
+                                                    <div>Có ít nhất một số (0-9)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <span class="field-validation-valid exception login-error"
+                                        data-valmsg-for="Password" data-valmsg-replace="true"></span>
+
+
+                                    <div class="form-group mt-0 mb-3 mt-3">
+
+                                        <div
+                                            class="custom-control custom-checkbox text-center text-xl-left chk-agreeLicense pl-0 font-size-14">
+                                            <div class="agree-text" for="agree-license"><span
+                                                    class="text-read font-size-14 color-000">Bằng cách bấm vào nút đăng
+                                                    ký, bạn đã đồng ý với</span> <a href="#"
+                                                    class="text-primary cursor-pointer text-prolicy disable-text-decoration font-size-14">điều
+                                                    khoản dịch vụ và chính sách bảo mật MYCLASS</a></div>
+                                            <div id="Agreement-error" class="error" for="Agreement"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 btn-register">
+                                        <button type="button" class="btn btn-primary btn-block btn-misaid " id="btnRegister"
+                                            tabindex="6">Đăng ký</button>
+                                    </div>
+                                    <input name="__RequestVerificationToken" type="hidden"
+                                        value="CfDJ8PoLDxkqErhIp4uztH63ap-CCePNRYIJZf-0NgTQq5HJHU1pJctuq7rCX3K19Yemx-zjxi4gVZldDzt9iQ4p_WtPbH0hGtn0TNBw58jSbRXUckNnRkHUlMw_hvWvQ3PKwpTK4vmeAkCG_dcMCFHvr8I" />
+                                </form>
+                                <div class="link-box link-box-custom mb-4 mb-xl-3 return-url">
+                                    <div class="font-size-14 color-000 text-center text-xl-left">Bạn đã có tài khoản? <a
+                                            class="text-primary login cursor-pointer" href="/login" tabindex="8">Đăng nhập
+                                            ngay</a></div>
+                                </div>
+                                <div class="profile-login__hr mb-0">
+                                    <span class="font-roboto-14 text-center color-or">Hoặc đăng ký với</span>
+                                </div>
+                                <div
+                                    class="row justify-content-xl-left justify-content-center pt-4 pt-xl-3 mb-5 mb-sm-3 pb-xl-2 ">
+                                    <div class="row">
+                                        <a class="text-white text-login-with btn-height-external mr-2"
+                                            id="login-facebook" tabindex="7"
+                                            href="/externallogin/login?provider=Facebook"><img
+                                                src="https://id.misacdn.net/img/icons/startbooks/logo_facebook2.svg"
+                                                alt="Alternate Text" /></a>
+                                        <a class="text-white text-login-with btn-height-external mr-2" id="login-google"
+                                            tabindex="8" href="/externallogin/login?provider=Google"><img
+                                                src="https://id.misacdn.net/img/icons/startbooks/logo_google2.svg"
+                                                alt="Google" /></a>
+                                        <a class="text-white text-login-with btn-height-external" id="login-zalo"
+                                            tabindex="8" href="/externallogin/login?provider=Zalo"><img
+                                                src="https://id.misacdn.net/img/newicons/zalo.svg" alt="Google" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100 mw-838 mw-md-558 mw-webview-392 d-flex flex-column align-items-center mt-650-3">
+                        <div class="w-100 d-flex flex-column align-items-center">
+
+                            <div class="mt-3 w-100 text-center mb-0 font-size-14 mid-footer">
+                                <div class="row mr-0 w-100">
+                                    <div class="w-100 d-flex align-items-center justify-content-between mx-auto">
+                                        <div class="cbx-lang">
+                                            <div class="cbx-lang-content">
+                                                <form method="post" class="form-horizontal" role="form"
+                                                    action="/account/setlanguage?returnUrl=~%2Faccount%2Fregister&amp;culture=vi-VN">
+                                                    <button culture="" returnUrl="~/account/register"
+                                                        id="btn-lang-vi">Tiếng Việt</button>
+                                                    <input name="__RequestVerificationToken" type="hidden"
+                                                        value="CfDJ8PoLDxkqErhIp4uztH63ap-CCePNRYIJZf-0NgTQq5HJHU1pJctuq7rCX3K19Yemx-zjxi4gVZldDzt9iQ4p_WtPbH0hGtn0TNBw58jSbRXUckNnRkHUlMw_hvWvQ3PKwpTK4vmeAkCG_dcMCFHvr8I" />
+                                                </form>
+                                                <form method="post" class="form-horizontal" role="form"
+                                                    action="/account/setlanguage?returnUrl=~%2Faccount%2Fregister&amp;culture=en-US">
+                                                    <button culture="en-US" returnUrl="~/account/register"
+                                                        id="btn-lang-en">English</button>
+                                                    <input name="__RequestVerificationToken" type="hidden"
+                                                        value="CfDJ8PoLDxkqErhIp4uztH63ap-CCePNRYIJZf-0NgTQq5HJHU1pJctuq7rCX3K19Yemx-zjxi4gVZldDzt9iQ4p_WtPbH0hGtn0TNBw58jSbRXUckNnRkHUlMw_hvWvQ3PKwpTK4vmeAkCG_dcMCFHvr8I" />
+                                                </form>
+                                            </div>
+                                            <form method="post" class="form-horizontal" role="form"
+                                                action="/account/setlanguage?returnUrl=~%2Faccount%2Fregister">
+                                                <div
+                                                    class="text-primar cbx-lang-title bg-transparent text-primary font-size-14 p-0">
+                                                    Tiếng Việt
+                                                    <div id="icon-lang"></div>
+                                                </div>
+                                                <input name="__RequestVerificationToken" type="hidden"
+                                                    value="CfDJ8PoLDxkqErhIp4uztH63ap-CCePNRYIJZf-0NgTQq5HJHU1pJctuq7rCX3K19Yemx-zjxi4gVZldDzt9iQ4p_WtPbH0hGtn0TNBw58jSbRXUckNnRkHUlMw_hvWvQ3PKwpTK4vmeAkCG_dcMCFHvr8I" />
+                                            </form>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="text" name="name" value="vi-VN" id="culture" hidden />
+
+
+        </div>
+    </div>
+    <div
+        class="overlay1 d-flex justify-content-center loading pt-md-5 hidden-loading main-content d-flex no-block loading-container align-items-center-custom align-items-center">
+        <div class="topbar-loader-track">
+            <div class="load-indicator"></div>
+        </div>
+    </div>
+
+
+
+    <script src="https://id.misacdn.net/lib/popper/popper.min.js"></script>
+    <script src="https://id.misacdn.net/js/vendor.min.js"></script>
+    <script src="https://id.misacdn.net/js/focus-form.min.js"></script>
+    <script src="https://id.misacdn.net/js/common.min.js?v=a2adV-oA_T3d044-mQ-P5tXg9CLlcLcxZYyxyCksA0Q"></script>
+    <script
+        src="https://id.misacdn.net/lib/jquery-toast-plugin/js/jquery.toast.min.js?v=YWMo_Ij74TqUsNnX8u_lIuGC5cmTaTDvy0gqa3UP14o"></script>
+    <script src="https://id.misacdn.net/js/message.vi-VN.min.js?v=3eckmrHtdjWZDsvCNoZmome90taqL2FzruhZx98DM-g"></script>
+
+    <script src="https://id.misacdn.net/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script
+        src="https://id.misacdn.net/js/common_register.min.js?v=cpDCdyYZR6THvbMzR5-SUkxqrQbtho2NyEsMvu-WtXE"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.login').click(function () {
+                var url = $(this).attr('return-url');
+                if (url === undefined) {
+                    url = "/";
+                }
+                var res = encodeURIComponent(url);
+                window.location.href = "/account/login?returnUrl=" + res + "&username=" + $('#Username').val();
+            });
+            $('.text-prolicy').click(function () {
+                var url = $('.return-url .login').attr('return-url');
+                if (url === undefined) {
+                    url = "/";
+                }
+                var res = encodeURIComponent(url);
+                var href = "/account/privacypolicy?returnUrl=" + res + "&username=" + $('#Username').val() + "&firstName=" + $('#FirstName').val() + "&lastName=" + $('#LastName').val() + "&email=" + $("#Email").val() + "&culture=" + $("#culture").val();
+                window.open(href, '_blank');
+            });
+        })
+    </script>
+    <script src="/js/register/register.js"></script>
+
+</body>
+
+</html>

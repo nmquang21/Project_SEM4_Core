@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title data-title="How Kteam - Free Education">MYCLASS - Free Education </title>
+
+  <link href="/css/styles-v=x4RW60atpIurWojGx_tZLVnh4oDpgbF2hGWxJiMjAGM1.css" rel="stylesheet" />
+  <link href="/css/common-v=mjfzwyxul6gbnDVQmoNbszXxFbDZ9PtP-RQfZsN9oLA1.css" rel="stylesheet" />
+  <link href="/css/cmt-v=iFnEdsc0aWB7ErYBJCquEdtuLN598jdqlemVQiSAWT81.css" rel="stylesheet" />
+  <link href="/css/css-v=MT8sTydC6XeAOn1UCxvFsI6LHz_3rOd4LyhObOlXLkQ1.css" rel="stylesheet" />
+
+  <style>
+    * {
+      cursor: url('images/rocket_24.png')
+        /*tpa=https://www.howkteam.vn/Content/images/cursor/rocket_24.png*/
+        , auto !important;
+    }
+  </style>
+</head>
+
+<body style="background-image: url(images/bg.jpg)/*tpa=https://www.howkteam.vn/Content/images/index/bg.jpg*/; background-size: cover; background-repeat: no-repeat;">
+  <div id="page-container" class="page-header-glass page-header-inverse main-content-boxed">
+
+
+
+
+
+    <!-- Header -->
+    <header class="header-bar" id="page-header">
+      <div class="main-menu content-header">
+        <div class="content-header-section mb-15 mr-20">
+          <!-- Logo -->
+          <div class="content-header-item">
+            <a href="/">
+              <img src="/images/myclass.png" width="50px" height="50px"/>
+            </a>
+          </div>
+          <!-- END Logo -->
+        </div>
+        <div class="content-header-section d-none d-lg-inline mr-auto">
+          <!-- Header Navigation -->
+          <!--
+            Desktop Navigation, mobile navigation can be found in #sidebar
+
+            If you would like to use the same navigation in both mobiles and desktops, you can use exactly the same markup inside sidebar and header navigation ul lists
+            If your sidebar menu includes headings, they won't be visible in your header navigation by default
+            If your sidebar menu includes icons and you would like to hide them, you can add the class 'nav-main-header-no-icons'
+            -->
+          <ul class="nav-main-header">
+            <li>
+              <a href="about" >Giới thiệu</a>
+            </li>
+            <li>
+              <a href="learn" >Khóa học</a>
+            </li>
+            <li>
+              <a href="question" >Hỏi đáp</a>
+
+            </li>
+            <!-- <li>
+              <a href="documentation" >Bài viết</a>
+            </li> -->
+            <li>
+              <a href="donate" >Tài trợ</a>
+            </li>
+            <li>
+              <a href="contact">Liên hệ</a>
+            </li>
+          </ul>
+          <!-- END Header Navigation -->
+        </div>
+
+        <div class="float-right">
+          <a class="btn btn-circle btn-dual-secondary" href="search.htm" tppabs="https://www.howkteam.vn/search">
+            <i class="si si-magnifier"></i>
+          </a>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="si si-pencil"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right min-width-150">
+              <a class="dropdown-item" href="#" data-toggle="btn-create-question">
+                <i class="si si-question mr-2"></i> Đặt câu hỏi
+              </a>
+              <!-- <a class="dropdown-item" href="javascript:if(confirm(%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fdocumentation%2Fcreate  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fdocumentation%2Fcreate%27" tppabs="https://www.howkteam.vn/documentation/create">
+                <i class="si si-doc mr-2"></i> Viết bài
+              </a>
+              <a class="dropdown-item" href="javascript:if(confirm(%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fseries%2Fcreate  \n\nThis file was not retrieved by Teleport Ultra, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?%27))window.location=%27https://www.howkteam.vn/Account/Login?ReturnUrl=%2Fseries%2Fcreate%27" tppabs="https://www.howkteam.vn/series/create">
+                <i class="si si-list mr-2"></i> Tạo series -->
+              </a>
+            </div>
+          </div>
+          <!-- User Dropdown -->
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            
+                <% if(user){ %>
+                    <img src="<%=user.avatar %>" tppabs="https://www.howkteam.vn/Content/images/avatar/avatar.png" class="avatar-xs align-bottom mr-5" />
+                    <span class="mr-5"><%=`${user.firstname} ${user.lastname}` %></span>
+                  <% } else{ %>  
+                    <img src="images/avatar.png" tppabs="https://www.howkteam.vn/Content/images/avatar/avatar.png" class="avatar-xs align-bottom mr-5" />
+                    <span class="mr-5">Tài khoản</span>
+                 <% } %>
+              
+              
+                <i class="fa fa-angle-down"></i>
+            </button>
+
+
+            <% if(user){ %>
+            <div class="dropdown-menu dropdown-menu-right min-width-150" aria-labelledby="page-header-user-dropdown" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-121px, 24px, 0px);">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/users/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">
+                <i class="si si-user mr-5"></i> Hồ sơ
+              </a>
+
+              <a class="dropdown-item" href="/users/edit/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">
+                <i class="si si-wrench mr-5"></i> Cài đặt
+              </a>
+              <!-- END Side Overlay -->
+
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" id="btn-logout">
+                  <i class="si si-logout mr-5"></i> Đăng xuất
+                </a>
+              <input type="hidden" id="common-authen" value="true">
+              <div class="d-none" id="common-userId">6d566b12-2016-4321-8b05-ac2a5dcbd2f2</div>
+            </div>
+            <% } else{ %>
+            <div class="dropdown-menu dropdown-menu-right min-width-150" aria-labelledby="page-header-user-dropdown">
+              <a class="dropdown-item" href="/login" >
+                <i class="far fa-user fa-fw"></i> Đăng nhập
+              </a>
+              <a class="dropdown-item" href="/register" >
+                <i class="fas fa-user-plus fa-fw"></i> Đăng ký
+              </a>
+            </div>
+            <% } %>
+          </div>
+        </div>
+
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <div id="main-container">
+      <div class="content mt-100" style="height: calc(100vh - 100px);">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-xl-5">
+            <div class="hero-ribbon">KHÓA HỌC</div>
+            <h1 class="h2 hero-title">Thư viện khóa học lập trình từ cơ bản đến nâng cao</h1>
+            <p class="hero-desc">
+              Python ? C++? C# hay Java? <br />
+              Bạn lựa chọn ngôn ngữ nào để bắt đầu chặng đường trở thành lập trình viên của mình?
+            </p>
+            <a class="btn btn-gd-primary px-4 border-0" href="learn" tppabs="https://www.howkteam.vn/learn">
+              Học ngay
+            </a>
+          </div>
+          <div class="col-xl-6">
+            <div id="orbit-container" class="position-relative">
+              <div class="orbit">
+
+                <ul class="orbit-wrap">
+
+                  <li class="orbit-center">
+
+                    <a href="learn.htm" tppabs="https://www.howkteam.vn/learn">
+                      <img class="img-fluid" src="images/hocngay.png" tppabs="https://www.howkteam.vn/Content/images/index/hocngay.png" />
+                    </a>
+                  </li>
+
+
+
+
+                  <li>
+                    <ul class="ring-1">
+                      <li></li>
+                      <li>
+                        <a href="question.htm" tppabs="https://www.howkteam.vn/question" class="orbit-icon" target="_blank">
+
+                          <img class="img-fluid" src="images/hoidap.png" tppabs="https://www.howkteam.vn/Content/images/index/hoidap.png" />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="contact.htm" tppabs="https://www.howkteam.vn/about/contact" class="orbit-icon">
+
+                          <img class="img-fluid" src="images/phanhoi.png" tppabs="https://www.howkteam.vn/Content/images/index/phanhoi.png" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="ring-2">
+                      <li></li>
+                      <li>
+                        <a href="donate.htm" tppabs="https://www.howkteam.vn/donate" class="orbit-icon">
+
+                          <img class="img-fluid" src="images/taitro.png" tppabs="https://www.howkteam.vn/Content/images/index/taitro.png" />
+                        </a>
+                      </li>
+                      <li></li>
+                      <li>
+                        <a href="documentation.htm" tppabs="https://www.howkteam.vn/documentation" class="orbit-icon">
+
+                          <img class="img-fluid" src="images/tailieu.png" tppabs="https://www.howkteam.vn/Content/images/index/tailieu.png" />
+                        </a>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li>
+                        <a href="users.htm" tppabs="https://www.howkteam.vn/users" class="orbit-icon">
+
+                          <img class="img-fluid" src="images/kter.png" tppabs="https://www.howkteam.vn/Content/images/index/kter.png" />
+                        </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="ring-3">
+
+                    </ul>
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <!-- Quick learn modal -->
+
+  </div>
+
+ 
+  
+
+
+  <script src="/js/layout/common-libs-v=KeX6O5qBHXp8hnCvOctyAewLoNbgYGAqeVBfuCOOl_41.js"></script>
+
+  <script src="/js/layout/hubs.js"></script>
+
+  <script src="/js/layout/theme-libs-v=flWwMHqqG4vF5_S78OkkZmbgib5d81EN11q97eVmyjk1.js"></script>
+
+  <script src="/js/layout/js-v=RBijanojz1bp28r6ZUS4cWfovfa1gOATZhiHYkkjzVo1.js"></script>
+
+  <script src="/js/layout/js-v=GhsSyYCTb4at2L5Rn63YLFgIl71Ah2hgnrbPYBwwM3Y1.js"></script>
+  <script src="/js/common/common.js"></script>
+</body>
+
+</html>

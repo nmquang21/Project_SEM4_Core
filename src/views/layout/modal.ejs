@@ -1,0 +1,99 @@
+<div>
+  <div class="modal fade" id="empty-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="block block-themed block-transparent">
+          <div class="block-header bg-primary-dark">
+            <h3 class="block-title font-w600"></h3>
+            <div class="block-options">
+              <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                <i class="si si-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="block-content">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade modal-style-2" id="empty-modal-2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="authen-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="block block-themed block-transparent">
+          <div class="block-header bg-primary-dark">
+            <h3 class="block-title font-w600">Yêu cầu đăng nhập</h3>
+            <div class="block-options">
+              <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                <i class="si si-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="block-content">
+            <div class="text-center p-20 border">
+              <p class="mb-10">Để sử dụng tính năng này, Bạn cần đăng nhập bằng tài khoản MYCLASS.</p>
+              <a class="btn btn-primary btn-noborder" href="login">Đăng nhập</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="create-question-modal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="block block-themed block-transparent">
+        <div class="block-header bg-primary-dark">
+          <h3 class="block-title font-w600">Tạo câu hỏi mới</h3>
+          <div class="block-options">
+            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+              <i class="si si-close"></i>
+            </button>
+          </div>
+        </div>
+        <div class="block-content">
+
+
+          <form action="/question/create" data-name="ajaxForm" id="createQuesForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="ZGw66fDb_Zz70M-ogdqAdRr6P94Qt-GvVODZ8KM2iGnqsuGyG-GRJGaDSiH48zpARYXn3XvySdYU1TUwj6Mas1drXGnqqehvcvZi2NxVBseAGUdNxEeujW4jJRjo735YuOVDDUdV_74aUrSWhXkDfA2">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="Title">Tiêu đề</label>
+                  <input class="form-control form-control-lg" data-val="true" data-val-maxlength="Tiêu đề không quá 400 ký tự" data-val-maxlength-max="400" data-val-required="Tiêu đề không được để trống" id="Title" name="Title" placeholder="Mô tả ngắn gọn, cụ thể về câu hỏi của bạn" type="text" value="">
+                  <span class="field-validation-valid text-danger" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="Body">Nội dung</label>
+                  <textarea class="form-control form-control-lg" cols="4" data-val="true" data-val-required="Nội dung không được để trống" id="Body" name="Body" placeholder="Nội dung" rows="4" style="visibility: hidden; display: none;"></textarea>
+                 
+                  <span class="field-validation-valid text-danger" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+                </div>
+              </div>
+              
+              <div class="col-md-12">
+                <div class="text-right">
+                  <button type="button" class="btn btn-link" data-dismiss="modal">Hủy bỏ</button>
+                  <button type="submit" class="btn btn-primary min-width-100"><i class="fas fa-cloud-upload"></i> TẠO CÂU HỎI</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
