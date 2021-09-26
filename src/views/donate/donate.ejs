@@ -61,7 +61,7 @@
 
       <div class="content" style="height: auto !important;">
         <div id="faq1" role="tablist" aria-multiselectable="true">
-          <div class="block block-rounded mb-5">
+          <!-- <div class="block block-rounded mb-5">
             <div class="block-header block-header-default" role="tab" id="faq1_h1">
               <a class="block-title font-w600 text-body-color-dark" data-toggle="collapse" data-parent="#faq1" href="#faq1_q1" aria-expanded="true" aria-controls="faq1_q1"><i class="far fa-credit-card fa-fw"></i> ỦNG HỘ ONLINE SỬ DỤNG THẺ ATM HOẶC VISA/MASTER</a>
             </div>
@@ -72,7 +72,7 @@
                 <a class="btn btn-primary btn-noborder min-width-100" href="/donate/bank"><i class="fas fa-arrow-right"></i> Tiếp tục</a>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="block block-rounded mb-5">
             <div class="block-header block-header-default" role="tab" id="faq1_h2">
               <a class="block-title font-w600 text-body-color-dark" data-toggle="collapse" data-parent="#faq1" href="#faq1_q2" aria-expanded="true" aria-controls="faq1_q2"><i class="fab fa-paypal fa-fw"></i> ỦNG HỘ QUA PAYPAL</a>
@@ -80,7 +80,7 @@
             <div id="faq1_q2" class="collapse" role="tabpanel" aria-labelledby="faq1_h2">
               <div class="block-content pb-20">
                 <p>Ủng hộ online sử dụng tài khoản PAYPAL.</p>
-                <a class="btn btn-primary btn-noborder" href="/donate/paypal"><i class="fas fa-arrow-right"></i> Tiếp tục</a>
+                <div class="btn btn-primary btn-noborder" id="donate-paypal"><i class="fas fa-arrow-right"></i> Tiếp tục</div>
               </div>
             </div>
           </div>
@@ -110,6 +110,76 @@
     </main>
     <%- include('../layout/footer'); %>
   </div>
+  <div class="modal fade" id="authen-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="block block-themed block-transparent">
+          <div class="block-header bg-primary-dark">
+            <h3 class="block-title font-w600">Yêu cầu đăng nhập</h3>
+            <div class="block-options">
+              <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                <i class="si si-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="block-content">
+            <div class="text-center p-20 border">
+              <p class="mb-10">Để sử dụng tính năng này, Bạn cần đăng nhập bằng tài khoản MYCLASS.</p>
+              <a class="btn btn-primary btn-noborder" href="/login">Đăng nhập</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="create-donate-modal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="block block-themed block-transparent">
+          <div class="block-header bg-primary-dark">
+            <h3 class="block-title font-w600">Ủng hộ MYCLASS</h3>
+            <div class="block-options">
+              <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                <i class="si si-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="block-content">
+            <form method="post" action="/pay" id="form-donate">
+              <input class="form-control form-control-lg" style="display: none;" name="user_name"value="<% if(user){ %><%- `${user.firstname} ${user.lastname}` %> <% } %>">
+              <input class="form-control form-control-lg"  style="display: none;" name="user_id" value="<% if(user){ %><%=user._id %><% } %>">
+              <input class="form-control form-control-lg"  style="display: none;" name="avatar" value="<% if(user){ %><%=user.avatar %><% } %>">
+              <span class="field-validation text-danger" data-valmsg-for="Body" data-valmsg-replace="true">Vui lòng nhập đủ thông tin</span>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="Title">Số tiền ủng hộ(USD)</label>
+                    <input class="form-control form-control-lg" type="number" id="amount-donate" style="width: 180px" name="amount">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="Body">Nội dung</label>
+                    <textarea class="form-control form-control-lg" cols="4" data-val="true" id="content-donate" name="content" placeholder="Nội dung" rows="4"></textarea>
+
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="text-right">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" id="submit-donate" class="btn btn-success  min-width-100"><i class="fas fa-cloud-upload"></i> Ủng hộ</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </body>
 
 
@@ -127,4 +197,28 @@
 <script>
   $("a.side-nav-donate").addClass("active");
   document.getElementById("a-nav-donate").className += " active";
+
+
+  $(document).ready(function() {
+    $('#donate-paypal').on('click', function() {
+      if (_userId) {
+        $('#create-donate-modal').modal();
+        $('.field-validation').hide();
+      } else {
+        $('#authen-modal').modal();
+      }
+    })
+    $('#submit-donate').on('click', function() {
+      let amount = $('#amount-donate').val(),
+        content = $('#content-donate').val();
+      if (amount && content) {
+        $('.field-validation').hide();
+        $('#form-donate').submit();
+      } else {
+        $('.field-validation').show();
+      }
+
+
+    })
+  });
 </script>

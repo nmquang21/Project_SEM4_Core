@@ -16,6 +16,7 @@
   <link href="/css/cmt-v=iFnEdsc0aWB7ErYBJCquEdtuLN598jdqlemVQiSAWT81.css" rel="stylesheet" />
 
   <link href="/css/course.css" rel="stylesheet" />
+  <link href="/css/jquery.toast.css" rel="stylesheet" />
 
 </head>
 
@@ -37,7 +38,9 @@
             <div class="py-50 mt-20">
               <% if(course){ %>
 
-
+              <script>
+                var _courseId = '<%- course._id %>';
+              </script>
 
               <h1 class="h2 text-white font-w700 mb-10"><%= course.name %></h1>
 
@@ -70,13 +73,27 @@
                 </span>
               </div>
 
+
+              <% } else{ %>
+
+              <script>
+                var _courseId = null;
+              </script>
               <% } %>
-
-
-              <a class="btn btn-primary btn-noborder btn-startLecture" href="#">
+              <% if(course.isJoined){ %>
+              <button class="btn btn-success btn-noborder btn-startLecture" type="button" disabled="true">
+                Đã tham gia
+              </button>
+              <button class="btn btn-secondary btn-noborder btn-endLecture">
+                Hủy tham gia
+              </button>
+              <%}else{ %>
+              <button class="btn btn-primary btn-noborder btn-startLecture">
                 Bắt đầu học
                 <i class="fas fa-arrow-right fa-fw"></i>
-              </a>
+              </button>
+              <%}%>
+              
             </div>
           </div>
         </div>
@@ -87,153 +104,168 @@
       <div class="fixed-social-left d-none d-xl-block">
 
         <span class="bookmark-desktop">
-          <div class="btn-sticky-left btn-secondary text-secondary bookmark- js-tooltip-enabled" onclick="Kteam.saveBookmark('', '0', '/bookmark/create'); return false;" data-toggle="tooltip" data-placement="right" data-original-title="Lưu bài viết">
-            <i class="far fa-bookmark"></i>
-          </div>
+          <div class="btn-sticky-left btn-secondary text-secondary bookmark- js-tooltip-enabled" data-toggle="tooltip" data-placement="right" data-original-title="Lưu bài viết">
 
-        </span>
-      </div>
-
-      <!-- Courses -->
-      <div class="content" style="height: auto !important;">
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb bg-white push">
-          <a class="breadcrumb-item" href="/"><i class="fas fa-home"></i></a>
-          <a class="breadcrumb-item" href="/learn">Khóa học</a>
-          <!-- <a class="breadcrumb-item" href="/learn/lap-trinh-7">Lập trình</a>
-          <a class="breadcrumb-item" href="/learn/lap-trinh/lap-trinh-python-7-37">Lập trình Python</a> -->
-          <span class="breadcrumb-item active"> <% if(course){ %> <%= course.name %> <% } %> </span>
-        </nav>
-        <!-- END Breadcrumb -->
-
-        <div class="row row-deck">
-          <div class="col-xl-8">
-            <div class="block block-rounded block-fx-shadow">
-              <div class="auto-resizable-iframe"><iframe class="width-changed"></iframe>
-                <div>
-                  <iframe oncontextmenu="return false" id="ytplayer" height="538" type="text/html" frameborder="0" allowfullscreen="" autoplay="true"></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4">
-            <!-- Course Info -->
-            <div class="block block-rounded block-fx-shadow">
-              <div class="block-header block-header-default bg-gd-primary">
-                <h3 class="block-title font-w600 text-white">
-                  <i class="fa fa-fw fa-list"></i>
-                  Danh sách bài học
-                </h3>
-                <div class="block-options d-lg-none">
-                  <button type="button" class="btn-block-option text-white" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
-                </div>
-              </div>
-              <div class="block-content p-0">
-                <div class="asyncPartial">
-                  <div class="block-content">
-                    <div class="input-group mb-2">
-                      <input type="text" id="input-search-lecture" class="form-control" placeholder="Tìm bài học...">
-                      <div class="input-group-append">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="slimScrollDiv" style="position: relative; overflow: auto; width: auto; height: 399.15px;">
-                    <div id="lectures-list" class="block-content block-content-sm px-0" data-height="0px" style="overflow: auto; width: auto; height: 399.15px;">
-                      <div class="list-group">
-                        
-                        <% if(lession){ %>
-                        <% lession.forEach(function (item, index) { %>
-
-                        <div id="lecture-<%= index+1 %>" class="lecture-item list-group-item list-group-item-action border-0 " href="<%= item.link %>" style="cursor: pointer;">
-                          <span class=""> <%= index+1 %>. </span>
-                          <%= item.name %>
-                        </div>
-
-                        <% }) %>
-                        <% } %>
-
-
-                      </div>
-                    </div>
-                    <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 24px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 30px;"></div>
-                    <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
-                  </div>
-
-
-                  
-                </div>
-              </div>
-            </div>
-            <!-- END Course Info -->
-          </div>
-        </div>
-
-
-        <div class="my-15">
-
-        </div>
-
-        <div class="row" style="height: auto !important;">
-          <div class="col-xl-12" style="height: auto !important; min-height: 0px !important;">
-            <div class="block block-rounded block-fx-shadow" style="height: auto !important;">
-              <div class="block-content block-content-full border-b clearfix">
-                <div class="btn-group float-right">
-                  <a class="btn btn-primary btn-noborder btn-startLecture" href="#">
-                    <i class="fa fa-arrow-right mr-5"></i> Bắt đầu học
-                  </a>
-                </div>
-                <h2 class="m-0 font-size-h2"> <% if(course){ %> <%= course.name %> <% } %></h2>
-                <div class="mt-10 d-block d-xl-none">
-                  <button class="btnShareFb btn btn-primary btn-noborder btn-circle mr-5 js-tooltip-enabled" data-url="https://www.howkteam.vn/course/bai-tap-python-tu-luyen-69" data-title="Bài tập Python tự luyện" data-description="Serial dành cho những bạn cần luyện tập phương pháp, tu duy lập trình. Làm quen với các bài toán trong lập trình, ngẫu nhiên từ cơ bản đến nâng cao. Nội dung..." data-image="https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/3_Python/4_Bai%20Tap%20Python/0_Bai-tap-python.png" data-toggle="tooltip" data-placement="right" data-original-title="Chia sẻ lên facebook">
-                    <i class="fab fa-facebook-f fa-fw"></i>
-                  </button>
-                  <span class="bookmark-mobile">
-                    <div class="btn-secondary text-secondary bookmark- js-tooltip-enabled btn btn-circle" onclick="Kteam.saveBookmark('', '0', '/bookmark/create'); return false;" data-toggle="tooltip" data-placement="right" data-original-title="Lưu bài viết">
-                      <i class="far fa-bookmark"></i>
-                    </div>
-
-                  </span>
-                </div>
-              </div>
-
-              <!-- description -->
-              <% if(course){ %>
-              <%- course.description %>
-
+            <% if(course.isSaved){ %>
+              <i class="text-success fas fa-bookmark ic-source-save un-save-course"></i>
+              <% }else{ %>
+              <i class="far fa-bookmark  ic-source-save save-course"></i>
               <% } %>
+
             </div>
+            </span>
           </div>
 
-          <div class="col-xl-4">
-            <div class="row">
-              <div class="col-12">
+          <!-- Courses -->
+          <div class="content" style="height: auto !important;">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb bg-white push">
+              <a class="breadcrumb-item" href="/"><i class="fas fa-home"></i></a>
+              <a class="breadcrumb-item" href="/learn">Khóa học</a>
+              <!-- <a class="breadcrumb-item" href="/learn/lap-trinh-7">Lập trình</a>
+          <a class="breadcrumb-item" href="/learn/lap-trinh/lap-trinh-python-7-37">Lập trình Python</a> -->
+              <span class="breadcrumb-item active"> <% if(course){ %> <%= course.name %> <% } %> </span>
+            </nav>
+            <!-- END Breadcrumb -->
 
-              </div>
-              <div class="col-12">
-                <div class="block block-rounded block-fx-shadow" id="review-wrapper">
-                  <div class="block-header">
-                    <h3 class="block-title font-w600">Đánh giá</h3>
+            <div class="row row-deck">
+              <div class="col-xl-8">
+                <div class="block block-rounded block-fx-shadow">
+                  <div class="auto-resizable-iframe"><iframe class="width-changed"></iframe>
+                    <div>
+                      <iframe oncontextmenu="return false" id="ytplayer" height="538" type="text/html" frameborder="0" allowfullscreen="" autoplay="true"></iframe>
+                    </div>
                   </div>
-                  <div class="block-content pt-0 asyncPartial" id="review-container">
+                </div>
+              </div>
+              <div class="col-xl-4">
+                <!-- Course Info -->
+                <div class="block block-rounded block-fx-shadow">
+                  <div class="block-header block-header-default bg-gd-primary">
+                    <h3 class="block-title font-w600 text-white">
+                      <i class="fa fa-fw fa-list"></i>
+                      Danh sách bài học
+                    </h3>
+                    <div class="block-options d-lg-none">
+                      <button type="button" class="btn-block-option text-white" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
+                    </div>
+                  </div>
+                  <div class="block-content p-0">
+                    <div class="asyncPartial">
+                      <div class="block-content">
+                        <div class="input-group mb-2">
+                          <input type="text" id="input-search-lecture" class="form-control" placeholder="Tìm bài học...">
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                          </div>
+                        </div>
+                      </div>
 
-                    <div class="row">
-                      <div class="col-4 text-center">
-                        <div class="font-size-h1">
-                          5.0
+                      <div class="slimScrollDiv" style="position: relative; overflow: auto; width: auto; height: 399.15px;">
+                        <div id="lectures-list" class="block-content block-content-sm px-0" data-height="0px" style="overflow: auto; width: auto; height: 399.15px;">
+                          <div class="list-group">
+
+                            <% if(lession){ %>
+                            <% lession.forEach(function (item, index) { %>
+
+                            <div id="lecture-<%= index+1 %>" class="lecture-item list-group-item list-group-item-action border-0 " href="<%= item.link %>" style="cursor: pointer;">
+                              <span class=""> <%= index+1 %>. </span>
+                              <%= item.name %>
+                            </div>
+
+                            <% }) %>
+                            <% } %>
+
+
+                          </div>
                         </div>
-                        <a href="#" class="d-block text-warning font-size-sm mb-5" onclick="createReview('69', 'Course', '/review/create'); return false;">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="far fa-star"></i>
-                        </a>
-                        <div class="mb-10">
-                          <span class="fa fa-user fa-fw mr-5"></span>241 đánh giá
+                        <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 24px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 30px;"></div>
+                        <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                </div>
+                <!-- END Course Info -->
+              </div>
+            </div>
+
+
+            <div class="my-15">
+
+            </div>
+
+            <div class="row" style="height: auto !important;">
+              <div class="col-xl-12" style="height: auto !important; min-height: 0px !important;">
+                <div class="block block-rounded block-fx-shadow" style="height: auto !important;">
+                  <div class="block-content block-content-full border-b clearfix">
+                    <div class="btn-group float-right">
+                      <% if(course.isJoined){ %>
+                      <button class="btn btn-success btn-noborder btn-startLecture" type="button" disabled="true">
+                        Đã tham gia
+                      </button>
+                      <button class="btn btn-secondary btn-noborder btn-endLecture">
+                        Hủy tham gia
+                      </button>
+                      <%}else{ %>
+                      <button class="btn btn-primary btn-noborder btn-startLecture">
+                        Bắt đầu học
+                        <i class="fas fa-arrow-right fa-fw"></i>
+                      </button>
+                      <%}%>
+                    </div>
+                    <h2 class="m-0 font-size-h2"> <% if(course){ %> <%= course.name %> <% } %></h2>
+                      <div class="mt-10 d-block d-xl-none">
+                        <button class="btnShareFb btn btn-primary btn-noborder btn-circle mr-5 js-tooltip-enabled" data-url="https://www.howkteam.vn/course/bai-tap-python-tu-luyen-69" data-title="Bài tập Python tự luyện" data-description="Serial dành cho những bạn cần luyện tập phương pháp, tu duy lập trình. Làm quen với các bài toán trong lập trình, ngẫu nhiên từ cơ bản đến nâng cao. Nội dung..." data-image="https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/3_Python/4_Bai%20Tap%20Python/0_Bai-tap-python.png" data-toggle="tooltip" data-placement="right" data-original-title="Chia sẻ lên facebook">
+                          <i class="fab fa-facebook-f fa-fw"></i>
+                        </button>
+                        <span class="bookmark-mobile">
+                          <div class="btn-secondary text-secondary bookmark- js-tooltip-enabled btn btn-circle" onclick="Kteam.saveBookmark('', '0', '/bookmark/create'); return false;" data-toggle="tooltip" data-placement="right" data-original-title="Lưu bài viết">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- description -->
+                    <% if(course){ %>
+                    <%- course.description %>
+
+                    <% } %>
+                  </div>
+                </div>
+
+                <div class="col-xl-4">
+                  <div class="row">
+                    <div class="col-12">
+
+                    </div>
+                    <div class="col-12">
+                      <div class="block block-rounded block-fx-shadow" id="review-wrapper">
+                        <div class="block-header">
+                          <h3 class="block-title font-w600">Đánh giá</h3>
                         </div>
-                        <a href="#" onclick="createReview('69', 'Course', '/review/create'); return false;" class="btn btn-warning text-dark btn-sm btn-block btn-noborder">Đánh giá</a>
+                        <div class="block-content pt-0 asyncPartial" id="review-container">
+
+                          <div class="row">
+                            <div class="col-4 text-center">
+                              <div class="font-size-h1">
+                                5.0
+                              </div>
+                              <a href="#" class="d-block text-warning font-size-sm mb-5">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="far fa-star"></i>
+                              </a>
+                              <div class="mb-10">
+                                <span class="fa fa-user fa-fw mr-5"></span> <% if(rate){ %> <%= rate.length%> <%}%> đánh giá
+                        </div>
+                        <a id="btn-create-review" class="btn btn-warning text-dark btn-sm btn-block btn-noborder">Đánh giá</a>
                       </div>
                       <div class="col-7">
                         <div class="clearfix position-relative font-size-sm mb-10">
@@ -241,10 +273,10 @@
                             <i class="fa fa-fw fa-star text-warning"></i> 5
                           </div>
                           <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" style="width:<% if(rate){ %> <%= ((rate.filter(x => x.rate == 5).length)/rate.length )*100 %><%}%>%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <div class="position-absolute" style="right: -15px; top: 0">
-                            23
+                            <% if(rate){ %> <%= rate.filter(x => x.rate == 5).length %> <%}%>
                           </div>
                         </div>
                         <div class="clearfix position-relative font-size-sm mb-10">
@@ -252,10 +284,10 @@
                             <i class="fa fa-fw fa-star text-warning"></i> 4
                           </div>
                           <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" style="width:<% if(rate){ %> <%= ((rate.filter(x => x.rate == 4).length)/rate.length )*100 %><%}%>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <div class="position-absolute" style="right: -15px; top: 0">
-                            2
+                            <% if(rate){ %> <%= rate.filter(x => x.rate == 4).length %> <%}%>
                           </div>
                         </div>
                         <div class="clearfix position-relative font-size-sm mb-10">
@@ -263,10 +295,10 @@
                             <i class="fa fa-fw fa-star text-warning"></i> 3
                           </div>
                           <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" style="width:<% if(rate){ %> <%= ((rate.filter(x => x.rate == 3).length)/rate.length )*100 %><%}%>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <div class="position-absolute" style="right: -15px; top: 0">
-                            1
+                            <% if(rate){ %> <%= rate.filter(x => x.rate == 3).length %> <%}%>
                           </div>
                         </div>
                         <div class="clearfix position-relative font-size-sm mb-10">
@@ -274,10 +306,10 @@
                             <i class="fa fa-fw fa-star text-warning"></i> 2
                           </div>
                           <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" style="width:<% if(rate){ %> <%= ((rate.filter(x => x.rate == 2).length)/rate.length )*100 %><%}%>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <div class="position-absolute" style="right: -15px; top: 0">
-
+                            <% if(rate){ %> <%= rate.filter(x => x.rate == 2).length %> <%}%>
                           </div>
                         </div>
                         <div class="clearfix position-relative font-size-sm mb-10">
@@ -285,10 +317,10 @@
                             <i class="fa fa-fw fa-star text-warning"></i> 1
                           </div>
                           <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" style="width:<% if(rate){ %> <%= ((rate.filter(x => x.rate == 1).length)/rate.length )*100 %><%}%>%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                           <div class="position-absolute" style="right: -15px; top: 0">
-                            1
+                            <% if(rate){ %> <%= rate.filter(x => x.rate == 1).length %> <%}%>
                           </div>
                         </div>
                       </div>
@@ -296,406 +328,128 @@
                   </div>
                   <div class="block-content">
                     <div id="review-list" class="mb-20">
+                      <% if(rate){ %>
+                                <% rate.forEach(function (item, index) { %>
 
-                      <div class="comment-item" id="review-14078">
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="/users/eb0b7b71-d5b8-4c17-bbfb-6c9eb04d2a32">
-                              <img class="media-object avatar-sm" src="/images/avatar.png">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <div class="comment-replacement">
-                              <div class="comment-heading text-muted">
-                                <a class="comment-author-name" href="/users/eb0b7b71-d5b8-4c17-bbfb-6c9eb04d2a32">AnonyN</a>
-                                <span>đã đánh giá</span>
-                                <strong class="format-time" title="2021-09-22 17:12:52">khoảng 6 giờ trước</strong>
-                              </div>
-                              <div class="review-star">
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                              </div>
-                              <p class="mb-0 review-body">
+                                <div class="comment-item" id="review-14078">
+                                  <div class="media">
+                                    <div class="media-left">
+                                      <a href="/users/">
+                                        <img class="media-object avatar-sm" src="<%=item.user_avatar%>">
+                                      </a>
+                                    </div>
+                                    <div class="media-body">
+                                      <div class="comment-replacement">
+                                        <div class="comment-heading text-muted">
+                                          <a class="comment-author-name" href="/users"><%=item.user_name%></a>
+                                          <span>đã đánh giá</span>
+                                        </div>
+                                        <div class="review-star">
+                                          <% for(var i=0; i < item.rate; i++) { %>
+                                          <i class="fa fa-star fa-star text-warning"></i>
+                                          <% } %>
+                                          <% for(var i=0; i < 5 - item.rate; i++) { %>
+                                          <i class="far fa-star fa-star"></i>
+                                          <% } %>
 
-                              </p>
-                            </div>
-                            <div class="comment-footer">
-                              <a class="float-right report-discuss" href="#" onclick="Kteam.createReport(14078, 'Review'); return false;">
-                                <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                              </a>
+                                        </div>
+                                        <p class="mb-0 review-body">
+
+                                        </p>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <% }) %>
+                                <% } %>
+
+
+
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="comment-item" id="review-14075">
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="/users/f795dda5-8b05-46c6-b847-4c9c8a551738">
-                              <img class="media-object avatar-sm" src="/images/avatar.png">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <div class="comment-replacement">
-                              <div class="comment-heading text-muted">
-                                <a class="comment-author-name" href="/users/f795dda5-8b05-46c6-b847-4c9c8a551738">Mai Anh Tài</a>
-                                <span>đã đánh giá</span>
-                                <strong class="format-time" title="2021-09-21 18:47:09">1 ngày trước</strong>
-                              </div>
-                              <div class="review-star">
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                              </div>
-                              <p class="mb-0 review-body">
+                    </div>
 
-                              </p>
-                            </div>
-                            <div class="comment-footer">
-                              <a class="float-right report-discuss" href="#" onclick="Kteam.createReport(14075, 'Review'); return false;">
-                                <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                              </a>
+                    <div class="col-xl-8" style="height: auto !important; min-height: 0px !important;">
+                      <div class="block block-rounded block-fx-shadow">
+                        <div class="block-header">
+                          <h3 class="block-title font-w600">Bình luận</h3>
+                        </div>
+                        <div class="block-content pt-0">
+                          <% if(!user){ %>
+                          <div class="media">
+                            <div class="media-body">
+                              <div class="text-center p-20 border">
+                                <p class="mb-10">Để bình luận, bạn cần đăng nhập bằng tài khoản MYCLASS.</p>
+                                <a class="btn btn-primary btn-noborder btn-rounded" href="/login">Đăng nhập</a>
+                              </div>
                             </div>
                           </div>
+                          <% } else{ %>
+                          <div class="media">
+                            <div class="media-body">
+                              <textarea class="form-control" cols="2" data-val="true" data-val-required="Nội dung không được để trống" id="comment-body" name="Body" placeholder="Thêm bình luận..." rows="2"></textarea>
+                              <div class="pull-left margin-top-10">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+                              </div>
+                              <div class="mt-10">
+                                <button type="button" id="btn-comment" class="btn btn-primary btn-noborder mr-5 btn-rounded" data-toggle="click-ripple"><i class="fas fa-reply fa-fw"></i> Nhận xét</button>
+                                <a id="btn-cancel-comment" class="btn btn-outline-secondary btn-rounded" href="#" onclick=" return false;" data-toggle="click-ripple">Hủy bỏ</a>
+                              </div>
+                            </div>
+                          </div>
+                          <% } %>
+
+                        </div>
+                        <div class="block-content">
+                          <div id="comment-list" class="mb-20">
+                            <% if(comment){ %>
+                            <% comment.forEach(function (item, index) { %>
+                            <div class="comment-item" id="comment-item-22718">
+                              <div class="media">
+                                <div class="media-left">
+                                  <a href="/users">
+                                    <img class="media-object avatar" src="<%= item.user_avatar%>">
+                                  </a>
+
+                                </div>
+                                <div class="media-body overflow-y-auto" id="comment-body-<%= index%>">
+                                  <div class="comment-replacement" id="comment-replacement-22718">
+                                    <div class="comment-heading text-muted">
+                                      <a class="comment-author-name" href="/users"><%= item.user_name%></a>
+                                      <span>đã bình luận</span>
+                                    </div>
+                                    <div class="comment-body">
+
+                                      <p><%= item.content%></p>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                            <% }) %>
+                            <% } %>
+
+
+                            <!-- <button class="btn btn-outline-primary btn-block mt-20 mb-20" data-toggle="button-showmore-comment" data-action="/discuss/commentlist/69?page=2&amp;type=1">Xem thêm ...</button> -->
+
+                          </div>
+                          <!-- END Discussion -->
                         </div>
                       </div>
-                      <div class="comment-item" id="review-14074">
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="/users/eb0b7b71-d5b8-4c17-bbfb-6c9eb04d2a32">
-                              <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <div class="comment-replacement">
-                              <div class="comment-heading text-muted">
-                                <a class="comment-author-name" href="/users/eb0b7b71-d5b8-4c17-bbfb-6c9eb04d2a32">AnonyN</a>
-                                <span>đã đánh giá</span>
-                                <strong class="format-time" title="2021-09-21 17:10:38">1 ngày trước</strong>
-                              </div>
-                              <div class="review-star">
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                              </div>
-                              <p class="mb-0 review-body">
 
-                              </p>
-                            </div>
-                            <div class="comment-footer">
-                              <a class="float-right report-discuss" href="#" onclick="Kteam.createReport(14074, 'Review'); return false;">
-                                <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="comment-item" id="review-14072">
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="/users/f795dda5-8b05-46c6-b847-4c9c8a551738">
-                              <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <div class="comment-replacement">
-                              <div class="comment-heading text-muted">
-                                <a class="comment-author-name" href="/users/f795dda5-8b05-46c6-b847-4c9c8a551738">Mai Anh Tài</a>
-                                <span>đã đánh giá</span>
-                                <strong class="format-time" title="2021-09-21 09:34:34">1 ngày trước</strong>
-                              </div>
-                              <div class="review-star">
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                              </div>
-                              <p class="mb-0 review-body">
 
-                              </p>
-                            </div>
-                            <div class="comment-footer">
-                              <a class="float-right report-discuss" href="#" onclick="Kteam.createReport(14072, 'Review'); return false;">
-                                <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="comment-item" id="review-14070">
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="/users/eb0b7b71-d5b8-4c17-bbfb-6c9eb04d2a32">
-                              <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <div class="comment-replacement">
-                              <div class="comment-heading text-muted">
-                                <a class="comment-author-name" href="/users/eb0b7b71-d5b8-4c17-bbfb-6c9eb04d2a32">AnonyN</a>
-                                <span>đã đánh giá</span>
-                                <strong class="format-time" title="2021-09-20 16:55:31">2 ngày trước</strong>
-                              </div>
-                              <div class="review-star">
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                                <span class="fa fa-star text-warning"></span>
-                              </div>
-                              <p class="mb-0 review-body">
-
-                              </p>
-                            </div>
-                            <div class="comment-footer">
-                              <a class="float-right report-discuss" href="#" onclick="Kteam.createReport(14070, 'Review'); return false;">
-                                <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- <button id="review-show-more" class="btn btn-outline-primary btn-block mt-20 mb-20" data-action="/review/reviewlist/4158?page=2&amp;type=2">Xem thêm ...</button> -->
 
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-8" style="height: auto !important; min-height: 0px !important;">
-            <div class="block block-rounded block-fx-shadow">
-              <div class="block-header">
-                <h3 class="block-title font-w600">Bình luận</h3>
-              </div>
-              <div class="block-content pt-0">
-                <div class="media">
-                  <div class="media-left d-none d-sm-block pr-10">
-                    <img class="media-object avatar" src="/Content/images/avatar/avatar.png">
-                  </div>
-                  <div class="media-body">
-                    <div class="text-center p-20 border">
-                      <p class="mb-10">Để bình luận, bạn cần đăng nhập bằng tài khoản Howkteam.</p>
-                      <a class="btn btn-primary btn-noborder btn-rounded" href="/account/login?ReturnUrl=%2Fcourse%2Fbai-tap-python-tu-luyen-69">Đăng nhập</a>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="block-content">
-                <div id="comment-list" class="mb-20">
-
-                  <div class="comment-item" id="comment-item-24401">
-                    <div class="media">
-                      <div class="media-left">
-                        <a href="/users/4deff1a7-3220-4813-836e-6a5ea35e1ca2">
-                          <img class="media-object avatar" src="/Content/images/avatar/avatar.png">
-                        </a>
-
-                      </div>
-                      <div class="media-body overflow-y-auto" id="comment-body-24401">
-                        <div class="comment-replacement" id="comment-replacement-24401">
-                          <div class="comment-heading text-muted">
-                            <a class="comment-author-name" href="/users/4deff1a7-3220-4813-836e-6a5ea35e1ca2">27hohuuduc01</a>
-                            <span>đã bình luận</span>
-                            <strong class="format-time" title="2021-08-20 21:43:59">khoảng 1 tháng trước</strong>
-                          </div>
-                          <div class="comment-body">
-
-                            <p>Chúc ông ngủ ngon :v</p>
-                            <p>&nbsp;</p>
-
-                          </div>
-                        </div>
-                        <div class="comment-footer">
-
-
-                          <div class="btn-group btn-group-sm vote-comment-container" role="group">
-                            <a class="Upvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(24401, 'Upvote'); return false;" data-original-title="Bình luận này rất hữu ích"><i class="fas fa-arrow-up font-size-h5 fa-fw"></i><span>2</span></a>
-                            <a class="Downvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(24401, 'Downvote'); return false;" data-original-title="Bình luận này không hữu ích"><i class="fas fa-arrow-down font-size-h5 fa-fw"></i><span>0</span></a>
-                          </div>
-
-                          <a class="btn btn-secondary btn-rounded btn-sm btn-noborder" href="#" onclick="OpenReplyForm(24401); return false;">Trả lời</a>
-                          <a class="float-right report-discuss btn btn-alt-danger btn-rounded btn-sm" href="#" onclick="Kteam.createReport(24401, 'Discuss'); return false;">
-                            <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comment-item" id="comment-item-23767">
-                    <div class="media">
-                      <div class="media-left">
-                        <a href="/users/d7736a0c-5be7-4473-8537-42a57fd5aa3b">
-                          <img class="media-object avatar" src="/Content/images/avatar/avatar.png">
-                        </a>
-
-                      </div>
-                      <div class="media-body overflow-y-auto" id="comment-body-23767">
-                        <div class="comment-replacement" id="comment-replacement-23767">
-                          <div class="comment-heading text-muted">
-                            <a class="comment-author-name" href="/users/d7736a0c-5be7-4473-8537-42a57fd5aa3b">hsdghđ</a>
-                            <span>đã bình luận</span>
-                            <strong class="format-time" title="2021-08-05 09:53:14">2 tháng trước</strong>
-                          </div>
-                          <div class="comment-body">
-
-                            <p>tại sao phải bỏ kí tự xuống dòng v mn</p>
-                            <p>&nbsp;</p>
-
-                          </div>
-                        </div>
-                        <div class="comment-footer">
-
-
-                          <div class="btn-group btn-group-sm vote-comment-container" role="group">
-                            <a class="Upvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(23767, 'Upvote'); return false;" data-original-title="Bình luận này rất hữu ích"><i class="fas fa-arrow-up font-size-h5 fa-fw"></i><span>0</span></a>
-                            <a class="Downvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(23767, 'Downvote'); return false;" data-original-title="Bình luận này không hữu ích"><i class="fas fa-arrow-down font-size-h5 fa-fw"></i><span>0</span></a>
-                          </div>
-
-                          <a class="btn btn-secondary btn-rounded btn-sm btn-noborder" href="#" onclick="OpenReplyForm(23767); return false;">Trả lời</a>
-                          <a class="float-right report-discuss btn btn-alt-danger btn-rounded btn-sm" href="#" onclick="Kteam.createReport(23767, 'Discuss'); return false;">
-                            <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                          </a>
-                        </div>
-                        <button class="btn btn-link btn-showReply" data-id="23767" data-count="2" data-show="-1" data-action="/discuss/replylist/23767">Xem tất cả 2 câu trả lời</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comment-item" id="comment-item-23728">
-                    <div class="media">
-                      <div class="media-left">
-                        <a href="/users/ebfd0328-f1ef-4653-a23b-f5b6717def9f">
-                          <img class="media-object avatar" src="/Content/images/avatar/avatar.png">
-                        </a>
-
-                      </div>
-                      <div class="media-body overflow-y-auto" id="comment-body-23728">
-                        <div class="comment-replacement" id="comment-replacement-23728">
-                          <div class="comment-heading text-muted">
-                            <a class="comment-author-name" href="/users/ebfd0328-f1ef-4653-a23b-f5b6717def9f">pythoner2003</a>
-                            <span>đã bình luận</span>
-                            <strong class="format-time" title="2021-08-02 21:32:02">2 tháng trước</strong>
-                          </div>
-                          <div class="comment-body">
-
-                            <p>giúp em với ạ em chạy chương trình trên subline text 3 ạ và nó chỉ chạy được dòng đầu tiên "nhập số thứ nhất" và em đã nhập số vào rồi mà nó không chạy tiếp chỉ đứng yên một chổ vậy ạ . mong admin giúp em&nbsp;<br>
-                              &nbsp;</p>
-
-                          </div>
-                        </div>
-                        <div class="comment-footer">
-
-
-                          <div class="btn-group btn-group-sm vote-comment-container" role="group">
-                            <a class="Upvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(23728, 'Upvote'); return false;" data-original-title="Bình luận này rất hữu ích"><i class="fas fa-arrow-up font-size-h5 fa-fw"></i><span>0</span></a>
-                            <a class="Downvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(23728, 'Downvote'); return false;" data-original-title="Bình luận này không hữu ích"><i class="fas fa-arrow-down font-size-h5 fa-fw"></i><span>0</span></a>
-                          </div>
-
-                          <a class="btn btn-secondary btn-rounded btn-sm btn-noborder" href="#" onclick="OpenReplyForm(23728); return false;">Trả lời</a>
-                          <a class="float-right report-discuss btn btn-alt-danger btn-rounded btn-sm" href="#" onclick="Kteam.createReport(23728, 'Discuss'); return false;">
-                            <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                          </a>
-                        </div>
-                        <button class="btn btn-link btn-showReply" data-id="23728" data-count="1" data-show="-1" data-action="/discuss/replylist/23728">Xem tất cả 1 câu trả lời</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comment-item" id="comment-item-23635">
-                    <div class="media">
-                      <div class="media-left">
-                        <a href="/users/fb6515e8-964d-4649-9bbf-29f8601bee4c">
-                          <img class="media-object avatar" src="/Content/images/avatar/avatar.png">
-                        </a>
-
-                      </div>
-                      <div class="media-body overflow-y-auto" id="comment-body-23635">
-                        <div class="comment-replacement" id="comment-replacement-23635">
-                          <div class="comment-heading text-muted">
-                            <a class="comment-author-name" href="/users/fb6515e8-964d-4649-9bbf-29f8601bee4c">hale33</a>
-                            <span>đã bình luận</span>
-                            <strong class="format-time" title="2021-07-30 10:07:40">2 tháng trước</strong>
-                          </div>
-                          <div class="comment-body">
-
-                            <p>Quá tuyệt vời, Howkteam quá pro, nhiệt huyết</p>
-
-                          </div>
-                        </div>
-                        <div class="comment-footer">
-
-
-                          <div class="btn-group btn-group-sm vote-comment-container" role="group">
-                            <a class="Upvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(23635, 'Upvote'); return false;" data-original-title="Bình luận này rất hữu ích"><i class="fas fa-arrow-up font-size-h5 fa-fw"></i><span>0</span></a>
-                            <a class="Downvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(23635, 'Downvote'); return false;" data-original-title="Bình luận này không hữu ích"><i class="fas fa-arrow-down font-size-h5 fa-fw"></i><span>0</span></a>
-                          </div>
-
-                          <a class="btn btn-secondary btn-rounded btn-sm btn-noborder" href="#" onclick="OpenReplyForm(23635); return false;">Trả lời</a>
-                          <a class="float-right report-discuss btn btn-alt-danger btn-rounded btn-sm" href="#" onclick="Kteam.createReport(23635, 'Discuss'); return false;">
-                            <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comment-item" id="comment-item-22718">
-                    <div class="media">
-                      <div class="media-left">
-                        <a href="/users/7844cc3a-8e03-4022-ac69-b64eae802576">
-                          <img class="media-object avatar" src="/Content/images/avatar/avatar.png">
-                        </a>
-
-                      </div>
-                      <div class="media-body overflow-y-auto" id="comment-body-22718">
-                        <div class="comment-replacement" id="comment-replacement-22718">
-                          <div class="comment-heading text-muted">
-                            <a class="comment-author-name" href="/users/7844cc3a-8e03-4022-ac69-b64eae802576">tranngoctu792</a>
-                            <span>đã bình luận</span>
-                            <strong class="format-time" title="2021-06-08 12:24:29">4 tháng trước</strong>
-                          </div>
-                          <div class="comment-body">
-
-                            <p>cảm ơn Kteam</p>
-
-                          </div>
-                        </div>
-                        <div class="comment-footer">
-
-
-                          <div class="btn-group btn-group-sm vote-comment-container" role="group">
-                            <a class="Upvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(22718, 'Upvote'); return false;" data-original-title="Bình luận này rất hữu ích"><i class="fas fa-arrow-up font-size-h5 fa-fw"></i><span>1</span></a>
-                            <a class="Downvote text-secondary btn btn-secondary js-tooltip-enabled" href="#" data-toggle="tooltip" data-placement="bottom" title="" onclick="voteDiscuss(22718, 'Downvote'); return false;" data-original-title="Bình luận này không hữu ích"><i class="fas fa-arrow-down font-size-h5 fa-fw"></i><span>0</span></a>
-                          </div>
-
-                          <a class="btn btn-secondary btn-rounded btn-sm btn-noborder" href="#" onclick="OpenReplyForm(22718); return false;">Trả lời</a>
-                          <a class="float-right report-discuss btn btn-alt-danger btn-rounded btn-sm" href="#" onclick="Kteam.createReport(22718, 'Discuss'); return false;">
-                            <i class="far fa-flag fa-fw" aria-hidden="true"></i> Báo cáo
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <button class="btn btn-outline-primary btn-block mt-20 mb-20" data-toggle="button-showmore-comment" data-action="/discuss/commentlist/69?page=2&amp;type=1">Xem thêm ...</button> -->
-
-                </div>
-                <!-- END Discussion -->
-              </div>
-            </div>
-
-
-
-          </div>
-        </div>
-      </div>
-      <!-- END Courses -->
+                <!-- END Courses -->
 
     </main>
     <!-- END Main Container -->
@@ -1162,12 +916,47 @@
     </div>
 
 
+    <div class="modal fade show" id="review-modal" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 8px; display: none;">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="block block-themed block-transparent">
+            <div class="block-header bg-gd-primary">
+              <h3 class="block-title font-w600">Đánh giá và Nhận xét</h3>
+              <div class="block-options">
+                <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                  <i class="si si-close"></i>
+                </button>
+              </div>
+            </div>
+            <div class="block-content">
+              <form>
+                <div class="rating mb-20 text-warning">
+                  <i class="fa-star fa-fw fa-2x far" data-value="1" style="cursor: pointer"></i>
+                  <i class="fa-star fa-fw fa-2x far" data-value="2" style="cursor: pointer"></i>
+                  <i class="fa-star fa-fw fa-2x far" data-value="3" style="cursor: pointer"></i>
+                  <i class="fa-star fa-fw fa-2x far" data-value="4" style="cursor: pointer"></i>
+                  <i class="fa-star fa-fw fa-2x far" data-value="5" style="cursor: pointer"></i>
 
+                </div>
+                <input id="ReviewStar" style="display: none;" value="0"></span>
+                <div class="form-group">
+                  <textarea class="form-control" cols="4" id="content-rate" name="content-rate" placeholder="Nội dung đánh giá..." rows="4"></textarea>
+                  <span class="valid-rate text-danger" style="display: none;">Vui lòng nhập đánh giá</span>
+                </div>
+                <div class="clearfix">
+                  <button class="btn btn-alt-primary btn-noborder btn-block" id="btn-send-rate" type="button">Đánh giá</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <script src="/js/layout/common-v=5WmZiv4HuIV-gt1ets7IC2aEarKWhzqG_TwZPwLi1TQ1.js"></script>
     <script src="/js/layout/cmt-v=65dISZQsn5VeLZedj3SFRm92FDw6tiXebwIpHpvT1nY1.js"></script>
-
+    <script src="/js/layout/jquery.toast.js"></script>
   </div>
 
 
@@ -1178,6 +967,7 @@
 
 
   <script src="/js/layout/quicklearn-v=wVvEGEzTmNdfHEOrup4fxiC6Y4Y_Wtxli68buwFIvYI1.js"></script>
+  <!-- <script src="/js/layout/review-v=lc5-6WnxtwX7ieFx-Bk011XweI2NsdvN2bCky-ZZqZg1.js"></script> -->
   <script src="/js/common/common.js"></script>
   <script>
     $('#lectures-list').slimScroll({
@@ -1203,9 +993,6 @@
     } else {
       $(".btn-prevLecture").addClass("disabled");
     }
-    if ($(".btn-startLecture").length) {
-      $(".btn-startLecture").attr("href", $("#lecture-1").attr("href"));
-    }
   </script>
   <script>
     $(window).on('resize', function() {
@@ -1223,18 +1010,265 @@
       });
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
       let lecItem = $('#lectures-list .lecture-item');
-      if(lecItem.length > 0){
+      if (lecItem.length > 0) {
         let link = $(lecItem[0]).attr('href');
-        $('#ytplayer').attr('src',link);
+        $('#ytplayer').attr('src', link);
       }
-      lecItem.on('click', function(){
+      lecItem.on('click', function() {
         lecItem.removeClass('active');
         $(this).addClass('active');
         let link = $(this).attr('href');
-        $('#ytplayer').attr('src',link);
+        $('#ytplayer').attr('src', link);
       })
 
-    })
+      $('#btn-comment').on('click', function() {
+        let content = $('#comment-body').val();
+        $('#comment-body').val('');
+        if (content) {
+          let comment = {
+            user_id: _userId,
+            user_name: _userName,
+            user_avatar: _userAvatar,
+            content: content,
+            course_id: _courseId,
+          };
+          $.ajax({
+              method: "POST",
+              url: "http://localhost:8017/insertCourseComment",
+              data: comment
+            })
+            .done(function(data) {
+              if (data.status === 'SUCCESS') {
+                showToast('Gửi nhận xét thành công', 'success');
+                $('#comment-list').prepend(createComment(comment));
+              } else if (data.status === 'Block') {
+                showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+              }
+            });
+        }
+
+      })
+
+      $('#btn-cancel-comment').on('click', function() {
+        $('#comment-body').val('');
+      })
+
+      $('#btn-create-review').on('click', function() {
+        if (_userId) {
+          $('#review-modal').modal();
+          $('#valid-rate').hide();
+        } else {
+
+          $('#authen-modal').modal();
+        }
+      });
+
+      $("#review-modal").on("click", ".rating > i", function() {
+        debugger
+        var t = parseInt($(this).data("value")),
+          n = $(this).parent().children("i.fa-star");
+        for (i = 0; i < n.length; i++)
+          $(n[i]).removeClass("fa").addClass("far");
+        for (i = 0; i < t; i++)
+          $(n[i]).addClass("far").addClass("fa");
+        $("#ReviewStar").val(t)
+      })
+
+
+      $('#btn-send-rate').on('click', function() {
+        let content = $('#content-rate').val(),
+
+          rateData = {
+            user_id: _userId,
+            user_name: _userName,
+            user_avatar: _userAvatar,
+            content: content,
+            course_id: _courseId,
+            rate: $("#ReviewStar").val(),
+          };
+        if (!content) {
+          $('.valid-rate').show();
+        } else {
+          $('#review-modal').modal('hide');
+          $('.valid-rate').hide();
+          $.ajax({
+              method: "POST",
+              url: "http://localhost:8017/insertCourseRate",
+              data: rateData
+            })
+            .done(function(data) {
+              if (data.status === 'SUCCESS') {
+                showToast('Gửi nhận xét thành công', 'success');
+                $('#review-list').prepend(createRate(rateData));
+              } else if (data.status === 'Block') {
+                showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+              }
+            });
+        }
+      })
+
+      $('.ic-source-save').on('click', function() {
+        if (!_userId) {
+          $('#authen-modal').modal();
+        } else {
+          if ($(this).hasClass('save-course')) {
+            $(this).removeClass('far save-course');
+            $(this).addClass('text-success fas un-save-course');
+            //unsave
+            //save
+            $.ajax({
+                method: "POST",
+                url: "http://localhost:8017/insertCourseSave",
+                data: {
+                  user_id: _userId,
+                  course_id: _courseId,
+                }
+              })
+              .done(function(data) {
+                if (data.status === 'SUCCESS') {
+                  showToast('Lưu khóa học thành công', 'success');
+                } else if (data.status === 'Block') {
+                  showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+                }
+              });
+          } else {
+            $(this).removeClass('text-success fas un-save-course');
+            $(this).addClass('far save-course');
+            $.ajax({
+                method: "POST",
+                url: "http://localhost:8017/deleteCourseSave",
+                data: {
+                  user_id: _userId,
+                  course_id: _courseId,
+                }
+              })
+              .done(function(data) {
+                if (data.deletedCount === 1) {
+                  showToast('Bỏ lưu khóa học thành công', 'success');
+                } else if (data.status === 'Block') {
+                  showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+                }
+              });
+          }
+        }
+
+      });
+
+      $('.btn-startLecture').on('click', function() {
+        debugger
+        if(_userId){
+          $.ajax({
+                method: "POST",
+                url: "http://localhost:8017/insertCourseJoin",
+                data: {
+                  user_id: _userId,
+                  course_id: _courseId,
+                }
+              })
+              .done(function(data) {
+                if (data.status === 'SUCCESS') {
+                  showToast('Tham gia khóa học thành công', 'success');
+                  location.reload();
+                } else if (data.status === 'Block') {
+                  showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+                }
+              });
+        }
+        else{
+          $('#authen-modal').modal();
+        }
+      });
+
+      $('.btn-endLecture').on('click', function() {
+        $.ajax({
+                method: "POST",
+                url: "http://localhost:8017/deleteCourseJoin",
+                data: {
+                  user_id: _userId,
+                  course_id: _courseId,
+                }
+              })
+              .done(function(data) {
+                if (data.deletedCount === 1) {
+                  showToast('Hủy tham gia khóa học thành công', 'success');
+                  location.reload();
+                } else if (data.status === 'Block') {
+                  showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+                }
+              });
+      });
+    });
+
+    showToast = (text, type) => {
+      $.toast({
+        heading: 'Thông báo',
+        text: text,
+        showHideTransition: 'slide',
+        position: 'top-right',
+        icon: type
+      })
+    }
+
+    createRate = (rate) => {
+      let rateStar = '';
+      for (let i = 0; i < rate.rate; i++) {
+        rateStar = rateStar + '<i class="fa fa-star text-warning"></i>'
+      }
+      for (let i = 0; i < 5 - rate.rate; i++) {
+        rateStar = rateStar + '<i class="far fa-fw fa-star"></i>'
+      }
+      let rateItem = `<div class="comment-item" id="review-14078">
+                        <div class="media">
+                          <div class="media-left">
+                            <a href="/users/">
+                              <img class="media-object avatar-sm" src="${rate.user_avatar}">
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <div class="comment-replacement">
+                              <div class="comment-heading text-muted">
+                                <a class="comment-author-name" href="/users">${rate.user_name}</a>
+                                <span>đã đánh giá</span>
+                              </div>
+                              <div class="review-star">
+                                
+                                ${rateStar}
+                              </div>
+                              <p class="mb-0 review-body">
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>`
+      return rateItem
+    }
+    createComment = (comment) => {
+      let html = `<div class="comment-item" id="comment-item-22718">
+                        <div class="media">
+                          <div class="media-left">
+                            <a href="/users">
+                              <img class="media-object avatar" src="${comment.user_avatar}%>">
+                            </a>
+    
+                          </div>
+                          <div class="media-body overflow-y-auto">
+                            <div class="comment-replacement" id="comment-replacement-22718">
+                              <div class="comment-heading text-muted">
+                                <a class="comment-author-name" href="/users">${comment.user_name}</a>
+                                <span>đã bình luận</span>
+                              </div>
+                              <div class="comment-body">
+    
+                                <p>${comment.content}</p>
+    
+                              </div>
+                            </div>
+    
+                          </div>
+                        </div>
+                      </div>`;
+      return html;
+    }
   </script>

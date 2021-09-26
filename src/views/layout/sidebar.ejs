@@ -1,123 +1,141 @@
  <!-- Sidebar -->
  <nav id="sidebar">
-    <!-- Sidebar Scroll Container -->
-    <div id="sidebar-scroll">
-      <!-- Sidebar Content -->
-      <div class="sidebar-content">
-        <!-- Side Header -->
-        <div class="content-header content-header-fullrow px-15">
-          <!-- Mini Mode -->
-          <div class="content-header-section sidebar-mini-visible-b">
-            <!-- Logo -->
-            <span class="content-header-item font-w700 font-size-xl float-left animated fadeIn">
-              <img width="25" src="images/logo_white 100x100.png" />
+   <!-- Sidebar Scroll Container -->
+   <div id="sidebar-scroll">
+     <!-- Sidebar Content -->
+     <div class="sidebar-content">
+       <!-- Side Header -->
+       <div class="content-header content-header-fullrow px-15">
+         <!-- Mini Mode -->
+         <div class="content-header-section sidebar-mini-visible-b">
+           <!-- Logo -->
+           <span class="content-header-item font-w700 font-size-xl float-left animated fadeIn">
+             <img width="25" src="images/logo_white 100x100.png" />
 
-            </span>
-            <!-- END Logo -->
-          </div>
-          <!-- END Mini Mode -->
-          <!-- Normal Mode -->
-          <div class="content-header-section text-center align-parent sidebar-mini-hidden">
-            <!-- Close Sidebar, Visible only on mobile screens -->
-            <button type="button" class="btn btn-circle btn-dual-secondary d-lg-none align-v-r" data-toggle="layout" data-action="sidebar_close">
-              <i class="fa fa-times text-danger"></i>
-            </button>
-            <!-- END Close Sidebar -->
-            <!-- Logo -->
-            <div class="content-header-item">
-              <a href="/">
-                <img src="/images/myclass.png" width="50px" height="50px"/>
-              </a>
-            </div>
-            <!-- END Logo -->
-          </div>
-          <!-- END Normal Mode -->
-        </div>
-        <!-- END Side Header -->
-        <!-- Side User -->
-        <% if(!user){ %>
-        <div class="content-side content-side-full content-side-user h-25 authen-side-mini-hide">
-          <!-- Visible only in normal mode -->
+           </span>
+           <!-- END Logo -->
+         </div>
+         <!-- END Mini Mode -->
+         <!-- Normal Mode -->
+         <div class="content-header-section text-center align-parent sidebar-mini-hidden">
+           <!-- Close Sidebar, Visible only on mobile screens -->
+           <button type="button" class="btn btn-circle btn-dual-secondary d-lg-none align-v-r" data-toggle="layout" data-action="sidebar_close">
+             <i class="fa fa-times text-danger"></i>
+           </button>
+           <!-- END Close Sidebar -->
+           <!-- Logo -->
+           <div class="content-header-item">
+             <a href="/">
+               <img src="/images/myclass.png" width="50px" height="50px" />
+             </a>
+           </div>
+           <!-- END Logo -->
+         </div>
+         <!-- END Normal Mode -->
+       </div>
+       <!-- END Side Header -->
+       <!-- Side User -->
+       <% if(!user){ %>
+       <div class="content-side content-side-full content-side-user h-25 authen-side-mini-hide">
+         <!-- Visible only in normal mode -->
 
-          <div class="sidebar-mini-hidden-b text-center">
-            <a href="register" class="btn btn-sm btn-block btn-hero btn-danger" data-toggle="click-ripple">
-              <i class="fas fa-user-plus fa-fw"></i> Đăng ký
-            </a>
-            <a href="login" class="btn btn-sm btn-block btn-hero btn-outline-primary" data-toggle="click-ripple">
-              <i class="far fa-user fa-fw"></i> Đăng nhập
-            </a>
-          </div>
+         <div class="sidebar-mini-hidden-b text-center">
+           <a href="register" class="btn btn-sm btn-block btn-hero btn-danger" data-toggle="click-ripple">
+             <i class="fas fa-user-plus fa-fw"></i> Đăng ký
+           </a>
+           <a href="login" class="btn btn-sm btn-block btn-hero btn-outline-primary" data-toggle="click-ripple">
+             <i class="far fa-user fa-fw"></i> Đăng nhập
+           </a>
+         </div>
 
-          <!-- END Visible only in normal mode -->
-        </div>
-        <% } else{ %>
-        <div class="sidebar-mini-hidden-b text-center">
-          <div class="options-container img-avatar">
-            <img class="img-avatar common-avatar" src="<%=user.avatar %>">
-            <div class="options-overlay bg-black">
-              <div class="options-overlay-content">
-                <a class="btn btn-lg btn-link text-white" href="/images/users/edit-avatar/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">
-                  <i class="fas fa-camera"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <ul class="list-inline mt-10">
-            <li class="list-inline-item">
-              <a class="link-effect text-dual-primary-dark font-size-xs font-w600 common-fullname" href="/users/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">nmquang21</a>
-            </li>
-          </ul>
-        </div>
-        <% } %>
-        <!-- END Side User -->
-        <!-- Side Navigation -->
+         <!-- END Visible only in normal mode -->
+       </div>
+       <% } else{ %>
+       <div class="sidebar-mini-hidden-b text-center">
+         <div class="options-container img-avatar">
+           <img class="img-avatar common-avatar" src="<%=user.avatar %>">
+           <div class="options-overlay bg-black">
+             <div class="options-overlay-content">
+               <a class="btn btn-lg btn-link text-white" href="/images/users/edit-avatar/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">
+                 <i class="fas fa-camera"></i>
+               </a>
+             </div>
+           </div>
+         </div>
+         <ul class="list-inline mt-10">
+           <li class="list-inline-item">
+             <a class="link-effect text-dual-primary-dark font-size-xs font-w600 common-fullname" href="/users/6d566b12-2016-4321-8b05-ac2a5dcbd2f2">nmquang21</a>
+           </li>
+         </ul>
+       </div>
+       <% } %>
+       <!-- END Side User -->
+       <!-- Side Navigation -->
 
-        <div class="content-side content-side-full">
-          <ul class="nav-main">
-            <% if(user){ %>
-            <li>
-              <a class="side-nav-history" href="/users/history/6d566b12-2016-4321-8b05-ac2a5dcbd2f2"><i class="si si-clock"></i><span class="sidebar-mini-hide">Lịch sử</span></a>
-            </li>
-            <li>
-              <a class="side-nav-bookmark" href="/users/bookmark/6d566b12-2016-4321-8b05-ac2a5dcbd2f2"><i class="far fa-bookmark"></i><span class="sidebar-mini-hide">Đã lưu</span></a>
-            </li>
-            <% } %>
-            <li class="nav-main-heading">
-              <span class="sidebar-mini-visible">PG</span>
-              <span class="sidebar-mini-hidden">Pages</span>
-            </li>
-            <li class="position-relative d-block d-lg-none">
-              <a class="nav-submenu" href="learn.htm">
-                <i class="si si-book-open"></i><span class="sidebar-mini-hide">Khóa học</span>
-              </a>
-            </li>
-            <li class="position-relative d-none d-lg-block">
-              <a class="side-nav-learn" href="learn"><i class="si si-book-open"></i><span class="sidebar-mini-hide">Khóa học</span></a>
-            </li>
-            <li>
-              <a class="side-nav-question" href="question"><i class="si si-question"></i><span class="sidebar-mini-hide">Hỏi đáp</span></a>
+       <div class="content-side content-side-full">
+         <ul class="nav-main">
+           <% if(user){ %>
+           <li>
+             <a class="side-nav-history" href="/history"><i class="si si-clock"></i><span class="sidebar-mini-hide">Đã tham gia</span></a>
+           </li>
+           <li>
+             <a class="side-nav-bookmark" href="/bookmark"><i class="far fa-bookmark"></i><span class="sidebar-mini-hide">Đã lưu</span></a>
+           </li>
+           <% } %>
+           <li class="nav-main-heading">
+             <span class="sidebar-mini-visible">PG</span>
+             <span class="sidebar-mini-hidden">Pages</span>
+           </li>
+           <li class="position-relative d-block d-lg-none">
+             <a class="nav-submenu" href="learn.htm">
+               <i class="si si-book-open"></i><span class="sidebar-mini-hide">Khóa học</span>
+             </a>
+           </li>
+           <li class="position-relative d-none d-lg-block">
+             <a class="side-nav-learn" href="learn"><i class="si si-book-open"></i><span class="sidebar-mini-hide">Khóa học</span></a>
+           </li>
+           <li>
+             <a class="side-nav-question" href="question"><i class="si si-question"></i><span class="sidebar-mini-hide">Hỏi đáp</span></a>
 
-            </li>
-            <!-- <li>
+           </li>
+           <!-- <li>
               <a class="side-nav-doc" href="documentation" ><i class="si si-docs"></i><span class="sidebar-mini-hide">Bài viết</span></a>
             </li> -->
-            
-            
-            <li>
-              <a class="side-nav-about" href="about" ><i class="si si-info"></i><span class="sidebar-mini-hide">Về MYCLASS</span></a>
-            </li>
-            <li>
-              <a class="side-nav-donate" href="donate" ><i class="si si-cup"></i><span class="sidebar-mini-hide">Tài trợ</span></a>
-            </li>
-            <li>
-              <a class="side-nav-contact" href="contact" ><i class="si si-note"></i><span class="sidebar-mini-hide">Phản hồi</span></a>
-            </li>
-          </ul>
-        </div>
-        <!-- END Side Navigation -->
-      </div>
-      <!-- Sidebar Content -->
-    </div>
-    <!-- END Sidebar Scroll Container -->
-  </nav>
-  <!-- END Sidebar -->
+
+
+           <li>
+             <a class="side-nav-about" href="about"><i class="si si-info"></i><span class="sidebar-mini-hide">Về MYCLASS</span></a>
+           </li>
+           <li>
+             <a class="side-nav-donate" href="donate"><i class="si si-cup"></i><span class="sidebar-mini-hide">Tài trợ</span></a>
+           </li>
+           <li>
+             <a class="side-nav-contact" href="contact"><i class="si si-note"></i><span class="sidebar-mini-hide">Phản hồi</span></a>
+           </li>
+         </ul>
+       </div>
+       <!-- END Side Navigation -->
+     </div>
+     <!-- Sidebar Content -->
+   </div>
+   <!-- END Sidebar Scroll Container -->
+ </nav>
+
+ <% if(user){ %>
+ <script>
+   var _userId = '<%- user._id %>';
+   var _userName = `<%- user.firstname %> <%- user.lastname %> `;
+   var _userAvatar='<%- user.avatar %>';
+ </script>
+
+
+
+ <% } else{ %>
+
+ <script>
+   var _userId = null;
+   var _userName = null;
+   var _userAvatar= null;
+ </script>
+ <% } %>
+ <!-- END Sidebar -->

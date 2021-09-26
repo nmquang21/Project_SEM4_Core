@@ -68,68 +68,26 @@
 
             <div id="donate-log-wrapper" data-action="/about/listsupporters" class="mb-20">
 
-              <div class="media border-b mb-15 pb-15 text-black">
-                <div class="media-left mr-10 mt-5">
-                  <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
+              <% if(supporter){ %>
+              <% supporter.forEach(function (item, index) { %>
+
+                <div class="media border-b mb-15 pb-15 text-black">
+                  <div class="media-left mr-10 mt-5">
+                    <img class="media-object avatar-sm" src="<%= item.user_avatar%>">
+                  </div>
+                  <div class="media-body">
+                    <a class="font-w600" href="/users"><%= item.user_name%></a>
+                    <span>đã ủng hộ</span>
+                    <span class="font-w600">200.000<sup>đ</sup></span>
+                    <!-- <span class="text-muted format-time" title="2021-09-19 17:23:46">5 ngày trước</span> -->
+                    <p class="m-0"><%= item.description%></p>
+                  </div>
                 </div>
-                <div class="media-body">
-                  <a class="font-w600" href="/users/4714db8b-4dbd-4a1b-ad31-10cc7a7fa793">Huyvu95</a>
-                  <span>đã ủng hộ</span>
-                  <span class="font-w600">200.000<sup>đ</sup></span>
-                  <span class="text-muted format-time" title="2021-09-19 17:23:46">5 ngày trước</span>
-                  <p class="m-0">cảm ơn HowKteam đã chia sẻ những bài học bổ ích tới cộng đồng. chúc đội ngũ team luôn mạnh khỏe
-                    mong HowKteam ngày càng phát triển.</p>
-                </div>
-              </div>
-              <div class="media border-b mb-15 pb-15 text-black">
-                <div class="media-left mr-10 mt-5">
-                  <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
-                </div>
-                <div class="media-body">
-                  <span class="font-w600">Ẩn danh</span>
-                  <span>đã ủng hộ</span>
-                  <span class="font-w600">50.000<sup>đ</sup></span>
-                  <span class="text-muted format-time" title="2021-09-13 16:55:47">11 ngày trước</span>
-                  <p class="m-0">Mong Kteam ngày càng phát triển và ra thêm nhiều bài giảng mới !!!!!!!!</p>
-                </div>
-              </div>
-              <div class="media border-b mb-15 pb-15 text-black">
-                <div class="media-left mr-10 mt-5">
-                  <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
-                </div>
-                <div class="media-body">
-                  <span class="font-w600">Ẩn danh</span>
-                  <span>đã ủng hộ</span>
-                  <span class="font-w600">500.000<sup>đ</sup></span>
-                  <span class="text-muted format-time" title="2021-08-21 15:46:42">khoảng 1 tháng trước</span>
-                  <p class="m-0"></p>
-                </div>
-              </div>
-              <div class="media border-b mb-15 pb-15 text-black">
-                <div class="media-left mr-10 mt-5">
-                  <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
-                </div>
-                <div class="media-body">
-                  <a class="font-w600" href="/users/2b660544-4aa6-4c5f-8b5b-7eabe9ade64b">thebao0402@gmail.com</a>
-                  <span>đã ủng hộ</span>
-                  <span class="font-w600">100.000<sup>đ</sup></span>
-                  <span class="text-muted format-time" title="2021-08-20 10:56:42">khoảng 1 tháng trước</span>
-                  <p class="m-0">Cám ơn những chia sẻ hữu ích và nhiệt tình của HowKteam. Mình không chuyên về IT, nhưng xem các video của các bạn rất tường minh :)) Tuyệt vời! Mong sẽ có thêm các Tutorial hay về C#</p>
-                </div>
-              </div>
-              <div class="media border-b mb-15 pb-15 text-black">
-                <div class="media-left mr-10 mt-5">
-                  <img class="media-object avatar-sm" src="/Content/images/avatar/avatar.png">
-                </div>
-                <div class="media-body">
-                  <a class="font-w600" href="/users/76f7e355-77ae-43f6-a051-c222e20f587a">qp.quocpham</a>
-                  <span>đã ủng hộ</span>
-                  <span class="font-w600">50.000<sup>đ</sup></span>
-                  <span class="text-muted format-time" title="2021-08-18 11:20:11">khoảng 1 tháng trước</span>
-                  <p class="m-0">chúc Kteam ngày càng phát triển và thêm nhiều bài giảng hơn minh mong khoá PHP</p>
-                </div>
-              </div>
-              
+              <% }) %>
+              <% } %>
+             
+
+
 
             </div>
           </div>

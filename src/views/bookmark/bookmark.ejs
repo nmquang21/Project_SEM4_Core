@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title data-title="Danh s&#225;ch kh&#243;a học">Đã tham gia | MYCLASS</title>
+
+  <link href="/css/styles-v=x4RW60atpIurWojGx_tZLVnh4oDpgbF2hGWxJiMjAGM1.css" rel="stylesheet" />
+  <link href="/css/common-v=mjfzwyxul6gbnDVQmoNbszXxFbDZ9PtP-RQfZsN9oLA1.css" rel="stylesheet" />
+  <link href="/css/cmt-v=iFnEdsc0aWB7ErYBJCquEdtuLN598jdqlemVQiSAWT81.css" rel="stylesheet" />
+  <link href="/css/jquery.toast.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="page-container" class="sidebar-o side-scroll page-header-glass page-header-inverse page-header-fixed main-content-narrow sidebar-inverse">
+    <%- include('../layout/sidebar'); %>
+    <%- include('../layout/menu'); %>
+    <%- include('../layout/header'); %>
+
+    <!-- Main Container -->
+    <main id="main-container" style="min-height: 238.8px;">
+
+
+
+
+
+      <!-- Hero -->
+      <div class="bg-image bg-image-bottom" style="background-image: url('/Content/images/banner/map.jpg');">
+        <div class="bg-primary-dark-op pt-100">
+          <div class="content content-full">
+            <% if(user){ %>
+            <div class="media d-flex align-items-center">
+              <img class="img-avatar img-avatar96 img-avatar-thumb mr-4" src="<%=user.avatar%>">
+              <div class="media-body">
+                <h1 class="h2 text-white font-w700 mb-10">
+                  <%=user.firstname%> <%=user.lastname%>
+                </h1>
+              </div>
+            </div>
+            <%}%>
+          </div>
+        </div>
+      </div>
+      <!-- END Hero -->
+      <div class="bg-gray-light">
+        <div class="content py-0 text-center">
+          <ul class="nav nav-tabs nav-tabs-block bg-gray-light">
+            
+            <li class="nav-item">
+              <a class="nav-link" id="u-nav-history" href="/history">Đã tham gia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" id="u-nav-bookmark" href="/bookmark">Đã lưu</a>
+            </li>
+      
+          </ul>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-4 col-lg-3">
+
+            <div class="block block-rounded block-fx-shadow">
+              <div class="block-header block-header-default">
+                <h3 class="block-title font-w600"><i class="fas fa-filter fa-fw"></i> Lọc theo</h3>
+              </div>
+              <div class="block-content">
+                <ul class="nav nav-pills flex-column push">
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-between active" href="#">
+                      <span><i class="fas fa-check-circle fa-fw mr-5"></i> Tất cả</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-between " href="/users/bookmark/6d566b12-2016-4321-8b05-ac2a5dcbd2f2?target=Course">
+                      <span><i class="far fa-circle fa-fw mr-5"></i> Khóa học</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-between " href="/users/bookmark/6d566b12-2016-4321-8b05-ac2a5dcbd2f2?target=Lecture">
+                      <span><i class="far fa-circle fa-fw mr-5"></i> Bài học</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-between " href="/users/bookmark/6d566b12-2016-4321-8b05-ac2a5dcbd2f2?target=Document">
+                      <span><i class="far fa-circle fa-fw mr-5"></i> Bài viết</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-between " href="/users/bookmark/6d566b12-2016-4321-8b05-ac2a5dcbd2f2?target=Question">
+                      <span><i class="far fa-circle fa-fw mr-5"></i> Câu hỏi</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-between " href="/users/bookmark/6d566b12-2016-4321-8b05-ac2a5dcbd2f2?target=Series">
+                      <span><i class="far fa-circle fa-fw mr-5"></i> Series</span>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <hr class="my-10">
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-alt-danger btn-block" href="/bookmark/delete/6d566b12-2016-4321-8b05-ac2a5dcbd2f2" data-toggle="confirm" data-confirm="Bạn có chắc chắn muốn xóa toàn bộ mục đã lưu không?">
+                      <i class="far fa-trash-alt mr-5"></i> Xóa mục đã lưu
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 col-lg-9">
+            <div class="block block-rounded block-fx-shadow">
+              <div class="block-header block-header-default">
+                <h3 class="block-title font-w600">Mục đã lưu</h3>
+              </div>
+              <div class="block-content">
+                <table class="table table-borderless table-vcenter">
+                  <tbody id="bookmark-wrapper">
+
+                     <% if(course){ %>
+                    <% course.forEach(function (item) { %>
+                    <tr>
+                    <td class="text-nowrap">
+                        <span class="font-w600">Khóa học</span>
+                    </td>
+                    <td>
+                        <h5 class="h6 mt-0 mb-0">
+                        <a href="/course?_id=<%=item._id%>" class="mark-lookup"><%=item.name%></a>
+                        </h5>
+                    </td>
+                   
+                    </tr>
+                    <% }) %>
+
+                    <% } %>
+
+            </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+  </div>
+  </div>
+
+
+  </main>
+  <!-- END Main Container -->
+
+  <!-- END Page Container -->
+  <%- include('../layout/footer'); %>
+
+  <script src="/js/layout/common-libs-v=KeX6O5qBHXp8hnCvOctyAewLoNbgYGAqeVBfuCOOl_41.js"></script>
+  <script src="/js/layout/hubs.js"></script>
+  <script src="/js/layout/theme-libs-v=flWwMHqqG4vF5_S78OkkZmbgib5d81EN11q97eVmyjk1.js"></script>
+  <script src="/js/layout/js-v=RBijanojz1bp28r6ZUS4cWfovfa1gOATZhiHYkkjzVo1.js"></script>
+  <script src="/js/layout/common-v=5WmZiv4HuIV-gt1ets7IC2aEarKWhzqG_TwZPwLi1TQ1.js"></script>
+  <script src="/js/layout/cmt-v=65dISZQsn5VeLZedj3SFRm92FDw6tiXebwIpHpvT1nY1.js"></script>
+  </div>
+
+  <script src="/js/layout/quicklearn-v=wVvEGEzTmNdfHEOrup4fxiC6Y4Y_Wtxli68buwFIvYI1.js"></script>
+  <script src="/js/common/common.js"></script>
+  <script src="/js/layout/jquery.toast.js"></script>
+  <script>
+    $(document).ready(function() {
+
+
+    });
+    showToast = (text, type) => {
+      $.toast({
+        heading: 'Thông báo',
+        text: text,
+        showHideTransition: 'slide',
+        position: 'top-right',
+        icon: type
+      })
+    }
+  </script>
+
+</body>
+
+</html>

@@ -11,6 +11,7 @@
   <link href="/css/styles-v=x4RW60atpIurWojGx_tZLVnh4oDpgbF2hGWxJiMjAGM1.css" rel="stylesheet" />
   <link href="/css/common-v=mjfzwyxul6gbnDVQmoNbszXxFbDZ9PtP-RQfZsN9oLA1.css" rel="stylesheet" />
   <link href="/css/cmt-v=iFnEdsc0aWB7ErYBJCquEdtuLN598jdqlemVQiSAWT81.css" rel="stylesheet" />
+  <link href="/css/jquery.toast.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -123,7 +124,11 @@
                       <span class="font-w600"> <%= item.star %></span> (<%= item.rate_number %>)
                     </span>
                     <span class="float-right text-secondary font-size-lg bookmark-69" onclick="Kteam.saveBookmark('69', 'Course', '/bookmark/create'); return false;" data-toggle="tooltip" data-placement="right" data-original-title="Lưu bài viết">
-                      <i class="far fa-bookmark"></i>
+                      <% if(item.isSaved){ %>
+                      <i class="text-success fas fa-bookmark un-save-course ic-save-course" data-source-id="<%=item._id %>"></i>
+                      <% }else{ %>
+                      <i class="far fa-bookmark save-course ic-save-course" data-source-id="<%=item._id %>"></i>
+                      <% } %>
                     </span>
                   </div>
                   <div class="mt-10">
@@ -188,7 +193,29 @@
             </div>
           </div>
         </div>
-
+        <div class="modal fade" id="authen-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="block block-themed block-transparent">
+                <div class="block-header bg-primary-dark">
+                  <h3 class="block-title font-w600">Yêu cầu đăng nhập</h3>
+                  <div class="block-options">
+                    <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                      <i class="si si-close"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="block-content">
+                  <div class="text-center p-20 border">
+                    <p class="mb-10">Để sử dụng tính năng này, Bạn cần đăng nhập bằng tài khoản MYCLASS.</p>
+                    <a class="btn btn-primary btn-noborder" href="login">Đăng nhập</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </main>
     <!-- END Main Container -->
@@ -203,11 +230,71 @@
     <script src="/js/layout/common-v=5WmZiv4HuIV-gt1ets7IC2aEarKWhzqG_TwZPwLi1TQ1.js"></script>
     <script src="/js/layout/cmt-v=65dISZQsn5VeLZedj3SFRm92FDw6tiXebwIpHpvT1nY1.js"></script>
   </div>
-  <script>
-    $("a.side-nav-learn").addClass("active");
-  </script>
+
   <script src="/js/layout/quicklearn-v=wVvEGEzTmNdfHEOrup4fxiC6Y4Y_Wtxli68buwFIvYI1.js"></script>
   <script src="/js/common/common.js"></script>
+  <script src="/js/layout/jquery.toast.js"></script>
+  <script>
+    $("a.side-nav-learn").addClass("active");
+    $(document).ready(function() {
+      $('.ic-save-course').on('click', function() {
+        if (!_userId) {
+          $('#authen-modal').modal();
+        } else {
+          if ($(this).hasClass('save-course')) {
+            $(this).removeClass('far save-course');
+            $(this).addClass('text-success fas un-save-course');
+            //unsave
+            //save
+            $.ajax({
+                method: "POST",
+                url: "http://localhost:8017/insertCourseSave",
+                data: {
+                  user_id: _userId,
+                  course_id: $(this).data('source-id'),
+                }
+              })
+              .done(function(data) {
+                if (data.status === 'SUCCESS') {
+                  showToast('Lưu khóa học thành công', 'success');
+                } else if (data.status === 'Block') {
+                  showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+                }
+              });
+          } else {
+            $(this).removeClass('text-success fas un-save-course');
+            $(this).addClass('far save-course');
+            $.ajax({
+                method: "POST",
+                url: "http://localhost:8017/deleteCourseSave",
+                data: {
+                  user_id: _userId,
+                  course_id: $(this).data('source-id'),
+                }
+              })
+              .done(function(data) {
+                if (data.deletedCount === 1) {
+                  showToast('Bỏ lưu khóa học thành công', 'success');
+                } else if (data.status === 'Block') {
+                  showToast('Có lỗi xảy ra, vui lòng liên hệ để được hỗ trợ', 'error');
+                }
+              });
+          }
+        }
+
+      });
+    });
+    showToast = (text, type) => {
+      $.toast({
+        heading: 'Thông báo',
+        text: text,
+        showHideTransition: 'slide',
+        position: 'top-right',
+        icon: type
+      })
+    }
+  </script>
+
 </body>
 
 </html>
